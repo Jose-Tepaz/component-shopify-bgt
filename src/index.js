@@ -76,11 +76,14 @@ const App =() => {
        newLoadings[index] = true;
        return newLoadings;
      });
+
      setTimeout(() => {
        setLoadings((prevLoadings) => {
          const newLoadings = [...prevLoadings];
          newLoadings[index] = false;
+         location.reload()
          return newLoadings;
+         
        });
      }, 2000);
    };
