@@ -14,14 +14,14 @@ code {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    width: 600px;
+    width: auto;
     margin: auto;
     align-items: center;
 }
 
 .Wrapp-component {
     padding: 32px;
-    width: 400px;
+    width: auto;
     display: flex;
     flex-direction: column;
     gap: 20px;

@@ -198,7 +198,7 @@ code {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 600px;
+  width: auto;
   margin: auto;
   display: flex;
 }
@@ -206,7 +206,7 @@ code {
 .Wrapp-component {
   flex-direction: column;
   gap: 20px;
-  width: 400px;
+  width: auto;
   padding: 32px;
   display: flex;
 }
