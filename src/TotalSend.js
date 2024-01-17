@@ -7,8 +7,9 @@ function TotalSend () {
             <p>Total a cotizar </p>
             <p>6 productos</p>
             </div>
-            <button className='BtnSend'>Pedir cotización</button>
+            
         </div>
     )
 }
 export {TotalSend};
+// <button className='BtnSend'>Pedir cotización</button> 

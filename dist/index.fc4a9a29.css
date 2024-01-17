@@ -262,4 +262,19 @@ h3 {
   font-size: 18px !important;
 }
 
+.ant-btn {
+  color: #fff;
+  cursor: pointer;
+  background: #426fcd;
+  border-style: none;
+  border-radius: 100px;
+  width: 100%;
+  height: 54px;
+  padding: 16px 30px;
+  font-family: Neue montreal;
+  font-size: 16px;
+  font-weight: 500;
+  transition: all .2s ease-in;
+}
+
 /*# sourceMappingURL=index.fc4a9a29.css.map */

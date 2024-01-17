@@ -8,7 +8,7 @@ import { listDespostos } from './apicallasesores';
 import { listDirecciones } from './apicalldepositos'
 import React,{useEffect, useState} from 'react';
 import './index.css';
-import { AutoComplete, DatePicker } from 'antd';
+import { AutoComplete, Button } from 'antd';
 
 //const listSedes = [
 //    { name: 'Viridiana Palma'},
@@ -67,6 +67,25 @@ const App =() => {
    } ) : [] ;
 
 
+
+   //Load BTN
+   const [loadings, setLoadings] = useState([]);
+   const enterLoading = (index) => {
+     setLoadings((prevLoadings) => {
+       const newLoadings = [...prevLoadings];
+       newLoadings[index] = true;
+       return newLoadings;
+     });
+     setTimeout(() => {
+       setLoadings((prevLoadings) => {
+         const newLoadings = [...prevLoadings];
+         newLoadings[index] = false;
+         return newLoadings;
+       });
+     }, 2000);
+   };
+
+
     return (
         <>
             <div className='Wrapp-component'>
@@ -114,6 +133,13 @@ const App =() => {
                 </div>
                 <div className='card'>
                 <TotalSend />
+                <Button 
+                
+                type="primary" 
+                loading={loadings[0]} 
+                onClick={() => enterLoading(0)}>
+                Pedir Cotización
+                </Button>
                 </div>
             </div>
         </>        

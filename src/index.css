@@ -77,3 +77,18 @@ h3 {
     color: #757575!important;
     font-family: 'Neue Montreal'!important;
 }
+
+.ant-btn {
+    background: #426FCD;
+    border-radius: 100px;
+    padding: 16px 30px;
+    width: 100%;
+    border-style: none;
+    color: #fff;
+    font-family: 'Neue montreal';
+    font-weight: 500;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 200ms ease-in;
+    height: 54px;
+}
