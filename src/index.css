@@ -21,7 +21,7 @@ code {
 
 .Wrapp-component {
     padding: 32px;
-    width: auto;
+    width: 100%;
     display: flex;
     flex-direction: column;
     gap: 20px;
