@@ -3019,7 +3019,7 @@ const App = ()=>{
                     ...prevLoadings
                 ];
                 newLoadings[index] = false;
-                alert("Solicitud enviada con \xe9xito");
+                alert("Solicitud enviada con \xe9xito...");
                 location.reload();
                 return newLoadings;
             });

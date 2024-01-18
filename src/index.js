@@ -82,7 +82,7 @@ const App =() => {
        setLoadings((prevLoadings) => {
          const newLoadings = [...prevLoadings];
          newLoadings[index] = false;
-         alert("Solicitud enviada con éxito");
+         alert("Solicitud enviada con éxito...");
          location.reload()
          return newLoadings;
          
