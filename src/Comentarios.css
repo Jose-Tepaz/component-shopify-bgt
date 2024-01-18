@@ -36,7 +36,7 @@
 }
 
 .text-area-input {
-    width: auto;
+    width: 100%;
     border: 1.5px solid #D9D9D9;
     border-radius: 12px;
     padding: 8px 12px;
@@ -67,4 +67,30 @@ textarea:focus {
 .guardarComents:hover {
     border-color: #426fcd;
     color: #426fcd;
+}
+
+.wrapp-inpitMesaje {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.wrapp-inpitMesaje--hide {
+    display: none;
+}
+
+.editBtn {
+    display: block;
+    color: #1C83E3;
+    font-family: "Neue Montreal";
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    cursor: pointer;
+    margin-top: 24px;
+}
+
+.editBtn--hidde {
+    display: none;
 }

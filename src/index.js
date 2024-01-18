@@ -23,6 +23,10 @@ const App =() => {
     const [direcciones, setDirecciones] = React.useState(null)
     //console.log(direcciones);
 
+    //Mesaje value
+    const [mesajeValue, setMesajeValue] = React.useState(null);
+    //console.log(mesajeValue);
+
     const [searchValue, setSearchValue] = React.useState(null);
     //console.log('Este es el valor ' + searchValue);
 
@@ -95,7 +99,11 @@ const App =() => {
             
 
                 <div className='card'>
-                    <Comentarios />                   
+                <Comentarios
+                mesajeValue={mesajeValue}
+                setMesajeValue={setMesajeValue}
+                
+                />                   
                 </div>
                 <div className='card'>
                             
