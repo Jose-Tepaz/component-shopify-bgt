@@ -73,6 +73,7 @@ const App =() => {
    const enterLoading = (index) => {
      setLoadings((prevLoadings) => {
        const newLoadings = [...prevLoadings];
+       
        newLoadings[index] = true;
        return newLoadings;
      });
@@ -81,6 +82,7 @@ const App =() => {
        setLoadings((prevLoadings) => {
          const newLoadings = [...prevLoadings];
          newLoadings[index] = false;
+         alert("Solicitud enviada con éxito");
          location.reload()
          return newLoadings;
          

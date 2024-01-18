@@ -3019,6 +3019,7 @@ const App = ()=>{
                     ...prevLoadings
                 ];
                 newLoadings[index] = false;
+                alert("Solicitud enviada con \xe9xito");
                 location.reload();
                 return newLoadings;
             });
@@ -3032,12 +3033,12 @@ const App = ()=>{
                     className: "card",
                     children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _comentarios.Comentarios), {}, void 0, false, {
                         fileName: "src/index.js",
-                        lineNumber: 98,
+                        lineNumber: 100,
                         columnNumber: 21
                     }, undefined)
                 }, void 0, false, {
                     fileName: "src/index.js",
-                    lineNumber: 97,
+                    lineNumber: 99,
                     columnNumber: 17
                 }, undefined),
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -3050,7 +3051,7 @@ const App = ()=>{
                                     children: "ID de cliente"
                                 }, void 0, false, {
                                     fileName: "src/index.js",
-                                    lineNumber: 109,
+                                    lineNumber: 111,
                                     columnNumber: 17
                                 }, undefined),
                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _antd.AutoComplete), {
@@ -3063,20 +3064,20 @@ const App = ()=>{
                                     }
                                 }, void 0, false, {
                                     fileName: "src/index.js",
-                                    lineNumber: 110,
+                                    lineNumber: 112,
                                     columnNumber: 17
                                 }, undefined),
                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                                     className: "divider"
                                 }, void 0, false, {
                                     fileName: "src/index.js",
-                                    lineNumber: 123,
+                                    lineNumber: 125,
                                     columnNumber: 17
                                 }, undefined)
                             ]
                         }, void 0, true, {
                             fileName: "src/index.js",
-                            lineNumber: 108,
+                            lineNumber: 110,
                             columnNumber: 17
                         }, undefined),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _sedesList.SedesList), {
@@ -3086,25 +3087,25 @@ const App = ()=>{
                                     setAdressSelect: setAdressSelect
                                 }, direccion, false, {
                                     fileName: "src/index.js",
-                                    lineNumber: 131,
+                                    lineNumber: 133,
                                     columnNumber: 25
                                 }, undefined)) : /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
                                 className: "nonInfo",
                                 children: " Introduce un ID de cliente para ver las direcciones disponibles "
                             }, void 0, false, {
                                 fileName: "src/index.js",
-                                lineNumber: 133,
+                                lineNumber: 135,
                                 columnNumber: 26
                             }, undefined)
                         }, void 0, false, {
                             fileName: "src/index.js",
-                            lineNumber: 128,
+                            lineNumber: 130,
                             columnNumber: 17
                         }, undefined)
                     ]
                 }, void 0, true, {
                     fileName: "src/index.js",
-                    lineNumber: 102,
+                    lineNumber: 104,
                     columnNumber: 17
                 }, undefined),
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -3112,7 +3113,7 @@ const App = ()=>{
                     children: [
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _totalSend.TotalSend), {}, void 0, false, {
                             fileName: "src/index.js",
-                            lineNumber: 138,
+                            lineNumber: 140,
                             columnNumber: 17
                         }, undefined),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _antd.Button), {
@@ -3122,19 +3123,19 @@ const App = ()=>{
                             children: "Pedir Cotizaci\xf3n"
                         }, void 0, false, {
                             fileName: "src/index.js",
-                            lineNumber: 139,
+                            lineNumber: 141,
                             columnNumber: 17
                         }, undefined)
                     ]
                 }, void 0, true, {
                     fileName: "src/index.js",
-                    lineNumber: 137,
+                    lineNumber: 139,
                     columnNumber: 17
                 }, undefined)
             ]
         }, void 0, true, {
             fileName: "src/index.js",
-            lineNumber: 94,
+            lineNumber: 96,
             columnNumber: 13
         }, undefined)
     }, void 0, false);
@@ -3143,7 +3144,7 @@ _s(App, "0l1UXh2M7d/3lh+7h1W6mNRCEg8=");
 _c = App;
 (0, _reactDomDefault.default).render(/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)(App, {}, void 0, false, {
     fileName: "src/index.js",
-    lineNumber: 152,
+    lineNumber: 154,
     columnNumber: 17
 }, undefined), document.getElementById("root"));
 var _c;
@@ -27868,8 +27869,9 @@ const listDespostos = async (state)=>{
     });
     //console.log(peticion)
     const clientes = peticion.data.records[0].fields.IdDeposito;
+    const nombreClientes = peticion.data.records[0].fields.NombreDeposito;
     state(clientes);
-//console.log(joinData)
+//console.log(peticion)
 };
 
 },{"axios":"jo6P5","micromatch":"aeGye","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"jo6P5":[function(require,module,exports) {
