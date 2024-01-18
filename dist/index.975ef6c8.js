@@ -3033,12 +3033,12 @@ const App = ()=>{
                     className: "card",
                     children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _comentarios.Comentarios), {}, void 0, false, {
                         fileName: "src/index.js",
-                        lineNumber: 100,
+                        lineNumber: 98,
                         columnNumber: 21
                     }, undefined)
                 }, void 0, false, {
                     fileName: "src/index.js",
-                    lineNumber: 99,
+                    lineNumber: 97,
                     columnNumber: 17
                 }, undefined),
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -3051,7 +3051,7 @@ const App = ()=>{
                                     children: "ID de cliente"
                                 }, void 0, false, {
                                     fileName: "src/index.js",
-                                    lineNumber: 111,
+                                    lineNumber: 103,
                                     columnNumber: 17
                                 }, undefined),
                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _antd.AutoComplete), {
@@ -3064,20 +3064,20 @@ const App = ()=>{
                                     }
                                 }, void 0, false, {
                                     fileName: "src/index.js",
-                                    lineNumber: 112,
+                                    lineNumber: 104,
                                     columnNumber: 17
                                 }, undefined),
                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                                     className: "divider"
                                 }, void 0, false, {
                                     fileName: "src/index.js",
-                                    lineNumber: 125,
+                                    lineNumber: 116,
                                     columnNumber: 17
                                 }, undefined)
                             ]
                         }, void 0, true, {
                             fileName: "src/index.js",
-                            lineNumber: 110,
+                            lineNumber: 102,
                             columnNumber: 17
                         }, undefined),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _sedesList.SedesList), {
@@ -3087,25 +3087,25 @@ const App = ()=>{
                                     setAdressSelect: setAdressSelect
                                 }, direccion, false, {
                                     fileName: "src/index.js",
-                                    lineNumber: 133,
+                                    lineNumber: 124,
                                     columnNumber: 25
                                 }, undefined)) : /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
                                 className: "nonInfo",
                                 children: " Introduce un ID de cliente para ver las direcciones disponibles "
                             }, void 0, false, {
                                 fileName: "src/index.js",
-                                lineNumber: 135,
+                                lineNumber: 126,
                                 columnNumber: 26
                             }, undefined)
                         }, void 0, false, {
                             fileName: "src/index.js",
-                            lineNumber: 130,
+                            lineNumber: 121,
                             columnNumber: 17
                         }, undefined)
                     ]
                 }, void 0, true, {
                     fileName: "src/index.js",
-                    lineNumber: 104,
+                    lineNumber: 100,
                     columnNumber: 17
                 }, undefined),
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -3113,7 +3113,7 @@ const App = ()=>{
                     children: [
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _totalSend.TotalSend), {}, void 0, false, {
                             fileName: "src/index.js",
-                            lineNumber: 140,
+                            lineNumber: 130,
                             columnNumber: 17
                         }, undefined),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _antd.Button), {
@@ -3123,19 +3123,19 @@ const App = ()=>{
                             children: "Pedir Cotizaci\xf3n"
                         }, void 0, false, {
                             fileName: "src/index.js",
-                            lineNumber: 141,
+                            lineNumber: 131,
                             columnNumber: 17
                         }, undefined)
                     ]
                 }, void 0, true, {
                     fileName: "src/index.js",
-                    lineNumber: 139,
+                    lineNumber: 129,
                     columnNumber: 17
                 }, undefined)
             ]
         }, void 0, true, {
             fileName: "src/index.js",
-            lineNumber: 96,
+            lineNumber: 94,
             columnNumber: 13
         }, undefined)
     }, void 0, false);
@@ -3144,7 +3144,7 @@ _s(App, "0l1UXh2M7d/3lh+7h1W6mNRCEg8=");
 _c = App;
 (0, _reactDomDefault.default).render(/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)(App, {}, void 0, false, {
     fileName: "src/index.js",
-    lineNumber: 154,
+    lineNumber: 144,
     columnNumber: 17
 }, undefined), document.getElementById("root"));
 var _c;

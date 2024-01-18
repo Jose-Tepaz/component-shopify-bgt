@@ -49,8 +49,7 @@ const App =() => {
         const objectSend = {      
             idCliente: searchValue,
             adressClient: adressSelect,
-            items: 'item1',
-     
+            items: 'item1',     
     };
     //console.log(objectSend);
 
@@ -84,8 +83,7 @@ const App =() => {
          newLoadings[index] = false;
          alert("Solicitud enviada con éxito...");
          location.reload()
-         return newLoadings;
-         
+         return newLoadings;         
        });
      }, 2000);
    };
@@ -97,16 +95,10 @@ const App =() => {
             
 
                 <div className='card'>
-                    <Comentarios />
-                    
-
+                    <Comentarios />                   
                 </div>
                 <div className='card'>
-                
-                
-               
-
-                
+                            
                 <div className='Component-input' >
                 <h3>ID de cliente</h3>
                 <AutoComplete  
@@ -117,8 +109,7 @@ const App =() => {
                 filterOption={true}
                 onChange={
                     (event) => {
-                        setClientSelect(event);
-                      
+                        setClientSelect(event);                      
                     }
                 }
                 />
@@ -132,8 +123,7 @@ const App =() => {
                        direcciones.map(direccion => 
                         <Sedes key={direccion} name={direccion} adressSelect={adressSelect}  setAdressSelect={setAdressSelect} />
                         )
-                    ) : (<p className='nonInfo'> Introduce un ID de cliente para ver las direcciones disponibles </p>) }
-                               
+                    ) : (<p className='nonInfo'> Introduce un ID de cliente para ver las direcciones disponibles </p>) }                              
                 </SedesList>
                 </div>
                 <div className='card'>
