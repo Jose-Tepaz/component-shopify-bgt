@@ -10,11 +10,6 @@ import React,{useEffect, useState} from 'react';
 import './index.css';
 import { AutoComplete, Button } from 'antd';
 
-//const listSedes = [
-//    { name: 'Viridiana Palma'},
-//    { name: 'Oficina central Dental'},
-//    { name: 'Denta Polanco'},
-//]
 
 const App =() => {
     //Sete la lista de clientes de un depostio
