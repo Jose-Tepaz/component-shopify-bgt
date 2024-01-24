@@ -28,9 +28,11 @@ const App =() => {
     const [adressSelect, setAdressSelect] = React.useState(null);
 
     const [clientSelect, setClientSelect] = React.useState(null);
-    //console.log(clientSelect);
+    console.log(clientSelect);
 
-    
+    const asesorIdshopify = "121313";
+
+
     //setea la direccion del deposito a buscar
 
     useEffect(() => {
@@ -45,22 +47,28 @@ const App =() => {
     
 
     useEffect(() => {
-        const objectSend = {      
-            idCliente: searchValue,
+        const objectSend = {  
+            idAsesor: `${asesorIdshopify}`,     
+            idCliente: clientSelect,
             adressClient: adressSelect,
+            mesaje: mesajeValue,
             items: 'item1',     
     };
-    //console.log(objectSend);
+    console.log(objectSend);
 
     },[adressSelect])
 
     //direcciones.map 
 
    const options = depositos != null ? depositos.map( (deposito) => {
+
+    const uniendoArray = `${deposito.nuevo[0]} - ${deposito.nuevo[1]}`
     
     return {
-        label: deposito,
-        value: deposito
+        label: uniendoArray,
+        value: uniendoArray
+
+        //value: deposito.nuevo[0]
     }
    } ) : [] ;
 
@@ -112,7 +120,12 @@ const App =() => {
                 filterOption={true}
                 onChange={
                     (event) => {
-                        setClientSelect(event);                      
+                        
+                        const newValue = event.split("-");
+                        const finalValue = newValue[0];
+                        console.log(finalValue);
+ 
+                        setClientSelect(finalValue.trim());                      
                     }
                 }
                 />

@@ -2,6 +2,8 @@ import axios from "axios";
 import { all } from "micromatch";
 
 //${987654321}
+const asesorIdshopify = "987654321";
+
 const listDespostos = async(state) => {
 
     const peticion = await axios.get(`https://api.airtable.com/v0/appVwlmLP1164Ceku/tblA5nanxMBvyKiY9?filterByFormula=Find(%22${asesorIdshopify}%22%2C+idAsesor)`, {
@@ -13,11 +15,43 @@ const listDespostos = async(state) => {
 
     //console.log(peticion)
     const clientes = peticion.data.records[0].fields.IdDeposito;
-    const nombreClientes = peticion.data.records[0].fields.NombreDeposito;
+    const nameID = peticion.data.records[0].fields.Idname;
 
-    state(clientes);
+    //const result = nameID.split(",");
 
-    //console.log(peticion)
+
+
+    const separando = nameID.map((a) => {
+
+        const nuevo = a.split(",");
+
+        return {
+            nuevo
+        }
+
+
+    });
+    //console.log(separando);
+
+
+    state(separando, asesorIdshopify);
+
+    //state(clientes);
+
+
+
+
+
+    //const uniendoesto = nombreClientes.map((a) => {
+    //
+    //    return {
+    //        label: a.fields.Idname,
+    //        value: a.fields.IdDeposito
+    //    }
+    //});
+    //
+    //console.log(uniendoesto)
+
 
 
 }
