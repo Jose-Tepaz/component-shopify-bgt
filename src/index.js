@@ -30,8 +30,14 @@ const App =() => {
     const [clientSelect, setClientSelect] = React.useState(null);
     console.log(clientSelect);
 
-    const asesorIdshopify = "121313";
 
+    //Variables de prueba se ocultan cuando se pasa a produccion a shopify
+    //const asesorIdshopify = "121313";
+    //const productName = "121313";
+    //const productSku = "121313";
+    //const productQuantity = "121313";
+
+ 
 
     //setea la direccion del deposito a buscar
 
@@ -52,7 +58,9 @@ const App =() => {
             idCliente: clientSelect,
             adressClient: adressSelect,
             mesaje: mesajeValue,
-            items: 'item1',     
+            productos: `${productName}`, 
+            skuproducto: `${productSku}`, 
+            quiantityProducts: `${productQuantity}`,   
     };
     console.log(objectSend);
 

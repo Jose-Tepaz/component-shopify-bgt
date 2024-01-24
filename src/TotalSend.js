@@ -1,5 +1,5 @@
 import './TotalSend.css';
-const totalsend = "5"
+//const totalsend = "5"
 function TotalSend () {
     return (
         <div>

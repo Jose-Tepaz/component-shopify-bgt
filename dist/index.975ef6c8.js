@@ -2972,7 +2972,11 @@ const App = ()=>{
     const [adressSelect, setAdressSelect] = (0, _reactDefault.default).useState(null);
     const [clientSelect, setClientSelect] = (0, _reactDefault.default).useState(null);
     console.log(clientSelect);
-    const asesorIdshopify = "121313";
+    //Variables de prueba se ocultan cuando se pasa a produccion a shopify
+    //const asesorIdshopify = "121313";
+    //const productName = "121313";
+    //const productSku = "121313";
+    //const productQuantity = "121313";
     //setea la direccion del deposito a buscar
     (0, _react.useEffect)(()=>{
         (0, _apicalldepositos.listDirecciones)(setDirecciones, clientSelect);
@@ -2991,7 +2995,9 @@ const App = ()=>{
             idCliente: clientSelect,
             adressClient: adressSelect,
             mesaje: mesajeValue,
-            items: "item1"
+            productos: `${productName}`,
+            skuproducto: `${productSku}`,
+            quiantityProducts: `${productQuantity}`
         };
         console.log(objectSend);
     }, [
@@ -3038,12 +3044,12 @@ const App = ()=>{
                         setMesajeValue: setMesajeValue
                     }, void 0, false, {
                         fileName: "src/index.js",
-                        lineNumber: 105,
+                        lineNumber: 113,
                         columnNumber: 17
                     }, undefined)
                 }, void 0, false, {
                     fileName: "src/index.js",
-                    lineNumber: 104,
+                    lineNumber: 112,
                     columnNumber: 17
                 }, undefined),
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -3056,7 +3062,7 @@ const App = ()=>{
                                     children: "ID de cliente"
                                 }, void 0, false, {
                                     fileName: "src/index.js",
-                                    lineNumber: 114,
+                                    lineNumber: 122,
                                     columnNumber: 17
                                 }, undefined),
                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _antd.AutoComplete), {
@@ -3072,20 +3078,20 @@ const App = ()=>{
                                     }
                                 }, void 0, false, {
                                     fileName: "src/index.js",
-                                    lineNumber: 115,
+                                    lineNumber: 123,
                                     columnNumber: 17
                                 }, undefined),
                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                                     className: "divider"
                                 }, void 0, false, {
                                     fileName: "src/index.js",
-                                    lineNumber: 132,
+                                    lineNumber: 140,
                                     columnNumber: 17
                                 }, undefined)
                             ]
                         }, void 0, true, {
                             fileName: "src/index.js",
-                            lineNumber: 113,
+                            lineNumber: 121,
                             columnNumber: 17
                         }, undefined),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _sedesList.SedesList), {
@@ -3095,25 +3101,25 @@ const App = ()=>{
                                     setAdressSelect: setAdressSelect
                                 }, direccion, false, {
                                     fileName: "src/index.js",
-                                    lineNumber: 140,
+                                    lineNumber: 148,
                                     columnNumber: 25
                                 }, undefined)) : /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
                                 className: "nonInfo",
                                 children: " Introduce un ID de cliente para ver las direcciones disponibles "
                             }, void 0, false, {
                                 fileName: "src/index.js",
-                                lineNumber: 142,
+                                lineNumber: 150,
                                 columnNumber: 26
                             }, undefined)
                         }, void 0, false, {
                             fileName: "src/index.js",
-                            lineNumber: 137,
+                            lineNumber: 145,
                             columnNumber: 17
                         }, undefined)
                     ]
                 }, void 0, true, {
                     fileName: "src/index.js",
-                    lineNumber: 111,
+                    lineNumber: 119,
                     columnNumber: 17
                 }, undefined),
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -3121,7 +3127,7 @@ const App = ()=>{
                     children: [
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _totalSend.TotalSend), {}, void 0, false, {
                             fileName: "src/index.js",
-                            lineNumber: 146,
+                            lineNumber: 154,
                             columnNumber: 17
                         }, undefined),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _antd.Button), {
@@ -3131,19 +3137,19 @@ const App = ()=>{
                             children: "Pedir Cotizaci\xf3n"
                         }, void 0, false, {
                             fileName: "src/index.js",
-                            lineNumber: 147,
+                            lineNumber: 155,
                             columnNumber: 17
                         }, undefined)
                     ]
                 }, void 0, true, {
                     fileName: "src/index.js",
-                    lineNumber: 145,
+                    lineNumber: 153,
                     columnNumber: 17
                 }, undefined)
             ]
         }, void 0, true, {
             fileName: "src/index.js",
-            lineNumber: 101,
+            lineNumber: 109,
             columnNumber: 13
         }, undefined)
     }, void 0, false);
@@ -3152,7 +3158,7 @@ _s(App, "zqV7/D5ewUoAe+dxU5wMlAR2pUs=");
 _c = App;
 (0, _reactDomDefault.default).render(/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)(App, {}, void 0, false, {
     fileName: "src/index.js",
-    lineNumber: 160,
+    lineNumber: 168,
     columnNumber: 17
 }, undefined), document.getElementById("root"));
 var _c;
@@ -27673,7 +27679,7 @@ parcelHelpers.export(exports, "TotalSend", ()=>TotalSend) // <button className='
 ;
 var _jsxDevRuntime = require("react/jsx-dev-runtime");
 var _totalSendCss = require("./TotalSend.css");
-const totalsend = "5";
+//const totalsend = "5"
 function TotalSend() {
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
         children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -27917,7 +27923,7 @@ var _axios = require("axios");
 var _axiosDefault = parcelHelpers.interopDefault(_axios);
 var _micromatch = require("micromatch");
 //${987654321}
-const asesorIdshopify = "987654321";
+//const asesorIdshopify = "987654321";
 const listDespostos = async (state)=>{
     const peticion = await (0, _axiosDefault.default).get(`https://api.airtable.com/v0/appVwlmLP1164Ceku/tblA5nanxMBvyKiY9?filterByFormula=Find(%22${asesorIdshopify}%22%2C+idAsesor)`, {
         headers: {
