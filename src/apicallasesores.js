@@ -31,28 +31,8 @@ const listDespostos = async(state) => {
 
 
     });
-    //console.log(separando);
-
 
     state(separando, asesorIdshopify);
-
-    //state(clientes);
-
-
-
-
-
-    //const uniendoesto = nombreClientes.map((a) => {
-    //
-    //    return {
-    //        label: a.fields.Idname,
-    //        value: a.fields.IdDeposito
-    //    }
-    //});
-    //
-    //console.log(uniendoesto)
-
-
 
 }
 

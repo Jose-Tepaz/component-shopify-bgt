@@ -12,17 +12,12 @@ const listDirecciones = async(state, id) => {
 
         });
 
-        //const direcciones = peticion.data.records[2].fields.DireccionesDepositos;
-
-        //console.log(id);
-        //console.log(peticion.data.records);
-
-
         if (peticion.data.records[0].fields.IDcliente === id) {
 
-            const direcciones = peticion.data.records[0].fields.DireccionesDepositos;
+            //const direcciones = peticion.data.records[0].fields.DireccionesDepositos;
+            const direcciones = peticion.data.records[0].fields;
             state(direcciones);
-            console.log(direcciones);
+            //console.log(direcciones);
 
 
         } else if (peticion.data.records.length >= 2) {
@@ -34,7 +29,7 @@ const listDirecciones = async(state, id) => {
         }
 
     } catch (error) {
-        console.log(error);
+        //console.log(error);
     }
 
 }

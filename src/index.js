@@ -8,6 +8,7 @@ import { listDespostos } from './apicallasesores';
 import { listDirecciones } from './apicalldepositos'
 import React,{useEffect, useState} from 'react';
 import './index.css';
+import axios from 'axios';
 import { AutoComplete, Button } from 'antd';
 
 
@@ -16,7 +17,7 @@ const App =() => {
     const [depositos, setDepositos] = React.useState(null)
 
     const [direcciones, setDirecciones] = React.useState(null)
-    //console.log(direcciones);
+ 
 
     //Mesaje value
     const [mesajeValue, setMesajeValue] = React.useState(null);
@@ -28,22 +29,78 @@ const App =() => {
     const [adressSelect, setAdressSelect] = React.useState(null);
 
     const [clientSelect, setClientSelect] = React.useState(null);
-    console.log(clientSelect);
+
+    const [dataClient, setDataClient] = React.useState([]);
+
+    const direccionesDataApi = dataClient != null ? dataClient.DireccionesDepositos: [];
+    const idDataApi = dataClient != null ? dataClient.IDcliente: [];
+    const emailClientDataApi = dataClient != null ? dataClient.Email: [];
+    const rfcDataApi = dataClient != null ? dataClient.RFC: [];
+    const telemarkDataApi = dataClient != null ? dataClient.Telemarketing: [];
+    
+    console.log(dataClient);
+
+    useEffect(() => {
+        setDirecciones(direccionesDataApi);
+    }), [clientSelect]
 
 
-    //Variables de prueba se ocultan cuando se pasa a produccion a shopify
-    //const asesorIdshopify = "121313";
-    //const productName = "121313";
-    //const productSku = "121313";
-    //const productQuantity = "121313";
+   
 
- 
+    //const finalsend = "Lista de productos";
+    //const asesorIdshopify = "987654321";
+    //const emailAsesor = "jose@acueducto.studio";
+
+// !!--- Send POST data to Airtable ---!!
+async function enviandoDatos() {
+    const response = await fetch('https://api.airtable.com/v0/appVwlmLP1164Ceku/tbl7q7V4X0euPXyyC', {
+        method: 'POST',
+        headers: {
+            "Accept": "application/json",
+            'Content-Type': 'application/json',
+            'Authorization': 'Bearer patRKAOUDaKjoM6c1.6564c9ab0b43954c74d0c41430eceb4a7f18a009249a22924ad944024e2d7446',
+        },
+        body: JSON.stringify({
+            "records": [{
+                "fields": {
+                    "Idcliente": `${idDataApi}`,
+                    "DireccionDeposito": `${adressSelect}`,
+                    "Comentario": `${mesajeValue}`,
+                    "productos": `${finalsend}`,
+                    "Email": `${emailClientDataApi}`,
+                    "RFC": `${rfcDataApi}`,
+                    "emailTelemarketing": `${telemarkDataApi}`,
+                    "Asesor": `${asesorIdshopify}`,
+                    "emailAsesor": `${emailAsesor}`,
+
+                }
+            }],
+            "typecast": true
+        })
+    });
+    console.log(response);
+}
+
+// !!--- End this script ---!! //
+
+
+
+
+
+
 
     //setea la direccion del deposito a buscar
 
     useEffect(() => {
-        listDirecciones(setDirecciones, clientSelect);
+        listDirecciones(setDataClient, clientSelect);
+        //console.log(clientSelect);
     }, [clientSelect]);
+
+
+    //useEffect(() => {
+    //    listDirecciones(setDirecciones, clientSelect);
+    //    console.log(clientSelect);
+    //}, [clientSelect]);
 
     //setea la lista de depositps del asesor
 
@@ -52,19 +109,7 @@ const App =() => {
     }, [depositos]);
     
 
-    useEffect(() => {
-        const objectSend = {  
-            idAsesor: `${asesorIdshopify}`,     
-            idCliente: clientSelect,
-            adressClient: adressSelect,
-            mesaje: mesajeValue,
-            productos: `${productName}`, 
-            skuproducto: `${productSku}`, 
-            quiantityProducts: `${productQuantity}`,   
-    };
-    console.log(objectSend);
 
-    },[adressSelect])
 
     //direcciones.map 
 
@@ -97,7 +142,8 @@ const App =() => {
          const newLoadings = [...prevLoadings];
          newLoadings[index] = false;
          alert("Solicitud enviada con éxito...");
-         location.reload()
+         enviandoDatos();
+         //location.reload();
          return newLoadings;         
        });
      }, 2000);
@@ -112,8 +158,7 @@ const App =() => {
                 <div className='card'>
                 <Comentarios
                 mesajeValue={mesajeValue}
-                setMesajeValue={setMesajeValue}
-                
+                setMesajeValue={setMesajeValue}               
                 />                   
                 </div>
                 <div className='card'>

@@ -1,7 +1,10 @@
 import './Sedes.css';
 
 
+
 function Sedes (props) {
+    
+
     return(
         <li>
             <label form={props.name} className='WrappSedeSelect'> 

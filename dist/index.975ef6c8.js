@@ -2956,6 +2956,8 @@ var _apicalldepositos = require("./apicalldepositos");
 var _react = require("react");
 var _reactDefault = parcelHelpers.interopDefault(_react);
 var _indexCss = require("./index.css");
+var _axios = require("axios");
+var _axiosDefault = parcelHelpers.interopDefault(_axios);
 var _antd = require("antd");
 var _s = $RefreshSig$();
 const App = ()=>{
@@ -2963,7 +2965,6 @@ const App = ()=>{
     //Sete la lista de clientes de un depostio
     const [depositos, setDepositos] = (0, _reactDefault.default).useState(null);
     const [direcciones, setDirecciones] = (0, _reactDefault.default).useState(null);
-    //console.log(direcciones);
     //Mesaje value
     const [mesajeValue, setMesajeValue] = (0, _reactDefault.default).useState(null);
     //console.log(mesajeValue);
@@ -2971,18 +2972,61 @@ const App = ()=>{
     //console.log('Este es el valor ' + searchValue);
     const [adressSelect, setAdressSelect] = (0, _reactDefault.default).useState(null);
     const [clientSelect, setClientSelect] = (0, _reactDefault.default).useState(null);
-    console.log(clientSelect);
-    //Variables de prueba se ocultan cuando se pasa a produccion a shopify
-    //const asesorIdshopify = "121313";
-    //const productName = "121313";
-    //const productSku = "121313";
-    //const productQuantity = "121313";
+    const [dataClient, setDataClient] = (0, _reactDefault.default).useState([]);
+    const direccionesDataApi = dataClient != null ? dataClient.DireccionesDepositos : [];
+    const idDataApi = dataClient != null ? dataClient.IDcliente : [];
+    const emailClientDataApi = dataClient != null ? dataClient.Email : [];
+    const rfcDataApi = dataClient != null ? dataClient.RFC : [];
+    const telemarkDataApi = dataClient != null ? dataClient.Telemarketing : [];
+    console.log(dataClient);
+    (0, _react.useEffect)(()=>{
+        setDirecciones(direccionesDataApi);
+    });
+    //const finalsend = "Lista de productos";
+    //const asesorIdshopify = "987654321";
+    //const emailAsesor = "jose@acueducto.studio";
+    // !!--- Send POST data to Airtable ---!!
+    async function enviandoDatos() {
+        const response = await fetch("https://api.airtable.com/v0/appVwlmLP1164Ceku/tbl7q7V4X0euPXyyC", {
+            method: "POST",
+            headers: {
+                "Accept": "application/json",
+                "Content-Type": "application/json",
+                "Authorization": "Bearer patRKAOUDaKjoM6c1.6564c9ab0b43954c74d0c41430eceb4a7f18a009249a22924ad944024e2d7446"
+            },
+            body: JSON.stringify({
+                "records": [
+                    {
+                        "fields": {
+                            "Idcliente": `${idDataApi}`,
+                            "DireccionDeposito": `${adressSelect}`,
+                            "Comentario": `${mesajeValue}`,
+                            "productos": `${finalsend}`,
+                            "Email": `${emailClientDataApi}`,
+                            "RFC": `${rfcDataApi}`,
+                            "emailTelemarketing": `${telemarkDataApi}`,
+                            "Asesor": `${asesorIdshopify}`,
+                            "emailAsesor": `${emailAsesor}`
+                        }
+                    }
+                ],
+                "typecast": true
+            })
+        });
+        console.log(response);
+    }
+    // !!--- End this script ---!! //
     //setea la direccion del deposito a buscar
     (0, _react.useEffect)(()=>{
-        (0, _apicalldepositos.listDirecciones)(setDirecciones, clientSelect);
+        (0, _apicalldepositos.listDirecciones)(setDataClient, clientSelect);
+    //console.log(clientSelect);
     }, [
         clientSelect
     ]);
+    //useEffect(() => {
+    //    listDirecciones(setDirecciones, clientSelect);
+    //    console.log(clientSelect);
+    //}, [clientSelect]);
     //setea la lista de depositps del asesor
     (0, _react.useEffect)(()=>{
         (0, _apicallasesores.listDespostos)(setDepositos);
@@ -2995,9 +3039,9 @@ const App = ()=>{
             idCliente: clientSelect,
             adressClient: adressSelect,
             mesaje: mesajeValue,
-            productos: `${productName}`,
-            skuproducto: `${productSku}`,
-            quiantityProducts: `${productQuantity}`
+            productos: "`${productName}`",
+            skuproducto: "`${productSku}`",
+            quiantityProducts: "`${productQuantity}`"
         };
         console.log(objectSend);
     }, [
@@ -3028,7 +3072,8 @@ const App = ()=>{
                 ];
                 newLoadings[index] = false;
                 alert("Solicitud enviada con \xe9xito...");
-                location.reload();
+                enviandoDatos();
+                //location.reload();
                 return newLoadings;
             });
         }, 2000);
@@ -3044,12 +3089,12 @@ const App = ()=>{
                         setMesajeValue: setMesajeValue
                     }, void 0, false, {
                         fileName: "src/index.js",
-                        lineNumber: 113,
+                        lineNumber: 171,
                         columnNumber: 17
                     }, undefined)
                 }, void 0, false, {
                     fileName: "src/index.js",
-                    lineNumber: 112,
+                    lineNumber: 170,
                     columnNumber: 17
                 }, undefined),
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -3062,7 +3107,7 @@ const App = ()=>{
                                     children: "ID de cliente"
                                 }, void 0, false, {
                                     fileName: "src/index.js",
-                                    lineNumber: 122,
+                                    lineNumber: 179,
                                     columnNumber: 17
                                 }, undefined),
                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _antd.AutoComplete), {
@@ -3078,20 +3123,20 @@ const App = ()=>{
                                     }
                                 }, void 0, false, {
                                     fileName: "src/index.js",
-                                    lineNumber: 123,
+                                    lineNumber: 180,
                                     columnNumber: 17
                                 }, undefined),
                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                                     className: "divider"
                                 }, void 0, false, {
                                     fileName: "src/index.js",
-                                    lineNumber: 140,
+                                    lineNumber: 197,
                                     columnNumber: 17
                                 }, undefined)
                             ]
                         }, void 0, true, {
                             fileName: "src/index.js",
-                            lineNumber: 121,
+                            lineNumber: 178,
                             columnNumber: 17
                         }, undefined),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _sedesList.SedesList), {
@@ -3101,25 +3146,25 @@ const App = ()=>{
                                     setAdressSelect: setAdressSelect
                                 }, direccion, false, {
                                     fileName: "src/index.js",
-                                    lineNumber: 148,
+                                    lineNumber: 205,
                                     columnNumber: 25
                                 }, undefined)) : /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
                                 className: "nonInfo",
                                 children: " Introduce un ID de cliente para ver las direcciones disponibles "
                             }, void 0, false, {
                                 fileName: "src/index.js",
-                                lineNumber: 150,
+                                lineNumber: 207,
                                 columnNumber: 26
                             }, undefined)
                         }, void 0, false, {
                             fileName: "src/index.js",
-                            lineNumber: 145,
+                            lineNumber: 202,
                             columnNumber: 17
                         }, undefined)
                     ]
                 }, void 0, true, {
                     fileName: "src/index.js",
-                    lineNumber: 119,
+                    lineNumber: 176,
                     columnNumber: 17
                 }, undefined),
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -3127,7 +3172,7 @@ const App = ()=>{
                     children: [
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _totalSend.TotalSend), {}, void 0, false, {
                             fileName: "src/index.js",
-                            lineNumber: 154,
+                            lineNumber: 211,
                             columnNumber: 17
                         }, undefined),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _antd.Button), {
@@ -3137,28 +3182,28 @@ const App = ()=>{
                             children: "Pedir Cotizaci\xf3n"
                         }, void 0, false, {
                             fileName: "src/index.js",
-                            lineNumber: 155,
+                            lineNumber: 212,
                             columnNumber: 17
                         }, undefined)
                     ]
                 }, void 0, true, {
                     fileName: "src/index.js",
-                    lineNumber: 153,
+                    lineNumber: 210,
                     columnNumber: 17
                 }, undefined)
             ]
         }, void 0, true, {
             fileName: "src/index.js",
-            lineNumber: 109,
+            lineNumber: 167,
             columnNumber: 13
         }, undefined)
     }, void 0, false);
 };
-_s(App, "zqV7/D5ewUoAe+dxU5wMlAR2pUs=");
+_s(App, "zJyerDLXWuPXqje313A6hr2QuYM=");
 _c = App;
 (0, _reactDomDefault.default).render(/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)(App, {}, void 0, false, {
     fileName: "src/index.js",
-    lineNumber: 168,
+    lineNumber: 225,
     columnNumber: 17
 }, undefined), document.getElementById("root"));
 var _c;
@@ -3169,7 +3214,7 @@ $RefreshReg$(_c, "App");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react-dom":"j6uA9","./IdInput":"j8Nil","./Sedes":"7cLAx","./SedesList":"7vo8c","./TotalSend":"gQ1kC","./Comentarios":"PvCzL","./apicallasesores":"4Hw1M","./apicalldepositos":"5ACdr","react":"21dqq","./index.css":"irmnC","antd":"6C7kW","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"iTorj":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react-dom":"j6uA9","./IdInput":"j8Nil","./Sedes":"7cLAx","./SedesList":"7vo8c","./TotalSend":"gQ1kC","./Comentarios":"PvCzL","./apicallasesores":"4Hw1M","./apicalldepositos":"5ACdr","react":"21dqq","./index.css":"irmnC","axios":"jo6P5","antd":"6C7kW","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"iTorj":[function(require,module,exports) {
 "use strict";
 module.exports = require("ee51401569654d91");
 
@@ -27588,7 +27633,7 @@ function Sedes(props) {
                     }
                 }, void 0, false, {
                     fileName: "src/Sedes.js",
-                    lineNumber: 8,
+                    lineNumber: 11,
                     columnNumber: 13
                 }, this),
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
@@ -27596,18 +27641,18 @@ function Sedes(props) {
                     children: props.name
                 }, void 0, false, {
                     fileName: "src/Sedes.js",
-                    lineNumber: 20,
+                    lineNumber: 23,
                     columnNumber: 13
                 }, this)
             ]
         }, void 0, true, {
             fileName: "src/Sedes.js",
-            lineNumber: 7,
+            lineNumber: 10,
             columnNumber: 13
         }, this)
     }, void 0, false, {
         fileName: "src/Sedes.js",
-        lineNumber: 6,
+        lineNumber: 9,
         columnNumber: 9
     }, this);
 }
@@ -27640,20 +27685,20 @@ function SedesList(props) {
                 children: "Direcci\xf3n de dep\xf3sito"
             }, void 0, false, {
                 fileName: "src/SedesList.js",
-                lineNumber: 6,
-                columnNumber: 14
+                lineNumber: 10,
+                columnNumber: 17
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("ul", {
                 children: props.children
             }, void 0, false, {
                 fileName: "src/SedesList.js",
-                lineNumber: 7,
-                columnNumber: 13
+                lineNumber: 11,
+                columnNumber: 17
             }, this)
         ]
     }, void 0, true, {
         fileName: "src/SedesList.js",
-        lineNumber: 5,
+        lineNumber: 8,
         columnNumber: 9
     }, this);
 }
@@ -27940,18 +27985,7 @@ const listDespostos = async (state)=>{
             nuevo
         };
     });
-    //console.log(separando);
     state(separando, asesorIdshopify);
-//state(clientes);
-//const uniendoesto = nombreClientes.map((a) => {
-//
-//    return {
-//        label: a.fields.Idname,
-//        value: a.fields.IdDeposito
-//    }
-//});
-//
-//console.log(uniendoesto)
 };
 
 },{"axios":"jo6P5","micromatch":"aeGye","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"jo6P5":[function(require,module,exports) {
@@ -37688,19 +37722,17 @@ const listDirecciones = async (state, id)=>{
                 "Authorization": "Bearer patRKAOUDaKjoM6c1.6564c9ab0b43954c74d0c41430eceb4a7f18a009249a22924ad944024e2d7446"
             }
         });
-        //const direcciones = peticion.data.records[2].fields.DireccionesDepositos;
-        //console.log(id);
-        //console.log(peticion.data.records);
         if (peticion.data.records[0].fields.IDcliente === id) {
-            const direcciones = peticion.data.records[0].fields.DireccionesDepositos;
+            //const direcciones = peticion.data.records[0].fields.DireccionesDepositos;
+            const direcciones = peticion.data.records[0].fields;
             state(direcciones);
-            console.log(direcciones);
+        //console.log(direcciones);
         } else if (peticion.data.records.length >= 2) //console.log("ya esta registrado");
         state(null);
         else //console.log("se ejecuto");
         state(null);
     } catch (error) {
-        console.log(error);
+    //console.log(error);
     }
 };
 
