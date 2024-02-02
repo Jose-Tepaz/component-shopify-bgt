@@ -7,9 +7,13 @@ import { Comentarios } from './Comentarios';
 import { listDespostos } from './apicallasesores';
 import { listDirecciones } from './apicalldepositos'
 import React,{useEffect, useState} from 'react';
+import iconDone from '../assets/icon-done.svg';
 import './index.css';
 import axios from 'axios';
 import { AutoComplete, Button } from 'antd';
+import Swal from 'sweetalert2';
+import withReactContent from 'sweetalert2-react-content';
+
 
 
 const App =() => {
@@ -20,7 +24,7 @@ const App =() => {
  
 
     //Mesaje value
-    const [mesajeValue, setMesajeValue] = React.useState(null);
+    const [mesajeValue, setMesajeValue] = React.useState("No hay comentarios");
     //console.log(mesajeValue);
 
     const [searchValue, setSearchValue] = React.useState(null);
@@ -32,13 +36,16 @@ const App =() => {
 
     const [dataClient, setDataClient] = React.useState([]);
 
+     //Estado que activa el botón
+     const [activeBtn, setActiveBtn] = React.useState(true);
+
     const direccionesDataApi = dataClient != null ? dataClient.DireccionesDepositos: [];
     const idDataApi = dataClient != null ? dataClient.IDcliente: [];
     const emailClientDataApi = dataClient != null ? dataClient.Email: [];
     const rfcDataApi = dataClient != null ? dataClient.RFC: [];
     const telemarkDataApi = dataClient != null ? dataClient.Telemarketing: [];
     
-    console.log(dataClient);
+    //console.log(dataClient);
 
     useEffect(() => {
         setDirecciones(direccionesDataApi);
@@ -46,14 +53,15 @@ const App =() => {
 
 
    
-
-    //const finalsend = "Lista de productos";
-    //const asesorIdshopify = "987654321";
-    //const emailAsesor = "jose@acueducto.studio";
+    //SE OCULTA AL ENVIAR A PRODUCCION
+    const finalsend = "Lista de productos";
+    const asesorIdshopify = "987654321";
+    const emailAsesor = "jose@acueducto.studio";
 
 // !!--- Send POST data to Airtable ---!!
 async function enviandoDatos() {
-    const response = await fetch('https://api.airtable.com/v0/appVwlmLP1164Ceku/tbl7q7V4X0euPXyyC', {
+    try {
+        const response = await fetch('https://api.airtable.com/v0/appVwlmLP1164Ceku/tbl7q7V4X0euPXyyC', {
         method: 'POST',
         headers: {
             "Accept": "application/json",
@@ -79,14 +87,27 @@ async function enviandoDatos() {
         })
     });
     console.log(response);
+    
+
+    if (response.status === 200) {
+        alertaSucces();
+        
+    } else {
+        alertaError();
+        
+    }
+        
+    } catch (error) {
+        console.log(error)
+        
+    }
+
+    
+    
+    
 }
 
 // !!--- End this script ---!! //
-
-
-
-
-
 
 
     //setea la direccion del deposito a buscar
@@ -141,13 +162,60 @@ async function enviandoDatos() {
        setLoadings((prevLoadings) => {
          const newLoadings = [...prevLoadings];
          newLoadings[index] = false;
-         alert("Solicitud enviada con éxito...");
          enviandoDatos();
+         
          //location.reload();
          return newLoadings;         
        });
      }, 2000);
    };
+
+   //modal de confirmación
+   const alertaSucces=()=>{
+    Swal.fire({
+    title: "Solicitaste tu cotización",
+    html: "Te enviaremos una copia de tu cotización a tu correo electrónico y nos comunicaremos contigo en un plazo de 3 días hábiles para confirmar todos los detalles.",
+    imageUrl: "https://cdn.shopify.com/s/files/1/0633/1459/1884/files/icon-done.svg?v=1706909092",
+  imageWidth: 60,
+  imageHeight: 60,
+  showCloseButton: true,
+  showConfirmButton: false,
+    
+    customClass: {
+        popup: 'popAlert',
+        title: 'titlePopup',
+        htmlContainer: 'textpopup',
+        closeButton: 'clodeBtnBtn'
+
+    }
+}).then((result) => {
+    window.location = '/';
+});
+}
+
+//modal de error
+const alertaError=()=>{
+    Swal.fire({
+    title: "No pudimos solicitar tu cotización",
+    html: "Lo sentimos, pero algo ha salido mal al procesar tu solicitud. Por favor, verifica tu conexión a internet e inténtalo de nuevo.",
+    imageUrl: "https://cdn.shopify.com/s/files/1/0633/1459/1884/files/icon-error.svg?v=1706911874",
+  imageWidth: 60,
+  imageHeight: 60,
+  showCloseButton: true,
+  confirmButtonText: `Volver a intentarlo`,
+    customClass: {
+        popup: 'popAlert',
+        confirmButton: 'btn-siguiente',
+        title: 'titlePopup',
+        htmlContainer: 'textpopup',
+        closeButton: 'clodeBtnBtn'
+
+    }
+}).then((result) => {
+    window.location = '/';
+});
+}
+
 
 
     return (
@@ -190,16 +258,19 @@ async function enviandoDatos() {
                 <SedesList>
                     {direcciones != null ? (
                        direcciones.map(direccion => 
-                        <Sedes key={direccion} name={direccion} adressSelect={adressSelect}  setAdressSelect={setAdressSelect} />
+                        <Sedes key={direccion} 
+                        isActive={activeBtn}
+                        setIsActive={setActiveBtn}
+                        name={direccion} adressSelect={adressSelect}  setAdressSelect={setAdressSelect} />
                         )
                     ) : (<p className='nonInfo'> Introduce un ID de cliente para ver las direcciones disponibles </p>) }                              
                 </SedesList>
                 </div>
                 <div className='card'>
                 <TotalSend />
-                <Button 
-                
-                type="primary" 
+                <Button               
+                type="primary"
+                disabled = {activeBtn} 
                 loading={loadings[0]} 
                 onClick={() => enterLoading(0)}>
                 Pedir Cotización

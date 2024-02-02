@@ -2,7 +2,7 @@ import axios from "axios";
 import { all } from "micromatch";
 
 //${987654321}
-//const asesorIdshopify = "987654321";
+const asesorIdshopify = "987654321";
 
 const listDespostos = async(state) => {
 

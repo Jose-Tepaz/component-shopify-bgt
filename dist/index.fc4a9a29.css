@@ -296,4 +296,59 @@ h3 {
   transition: all .2s ease-in;
 }
 
+.btn-siguiente {
+  padding: 14px 32px;
+  background: #426fcd !important;
+  border-style: none !important;
+  border-radius: 30px !important;
+  font-size: 18px !important;
+}
+
+.btn-siguiente:hover {
+  background: #4975d4 !important;
+}
+
+.btn-siguiente:focus {
+  box-shadow: none !important;
+  border-style: none !important;
+}
+
+.popAlert {
+  border-radius: 30px;
+  padding: 40px;
+}
+
+.titlePopup {
+  color: #3c4449;
+  text-align: left;
+  text-align: center;
+  padding: 0;
+  font-family: Neue montreal;
+  font-weight: 500;
+  font-size: 30px !important;
+}
+
+.textpopup {
+  color: #3c4549;
+  padding: 0;
+  font-family: Neue montreal;
+  font-weight: 400;
+  text-align: left !important;
+  margin: 14px 0 0 !important;
+  font-size: 18px !important;
+}
+
+.clodeBtnBtn:hover {
+  color: #4975d4 !important;
+  border-style: none !important;
+}
+
+.clodeBtnBtn:focus {
+  box-shadow: none;
+}
+
+div:where(.swal2-container) img:where(.swal2-image) {
+  margin: 0 auto 1em !important;
+}
+
 /*# sourceMappingURL=index.fc4a9a29.css.map */
