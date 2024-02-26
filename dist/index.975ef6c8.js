@@ -2991,9 +2991,9 @@ const App = ()=>{
         setDirecciones(direccionesDataApi);
     });
     //SE OCULTA AL ENVIAR A PRODUCCION
-    const finalsend = "Lista de productos";
-    const asesorIdshopify = "987654321";
-    const emailAsesor = "jose@acueducto.studio";
+    //const finalsend = "Lista de productos";
+    //const asesorIdshopify = "987654321";
+    //const emailAsesor = "jose@acueducto.studio";
     // !!--- Send POST data to Airtable ---!!
     async function enviandoDatos() {
         try {
@@ -3038,11 +3038,6 @@ const App = ()=>{
     }, [
         clientSelect
     ]);
-    //useEffect(() => {
-    //    listDirecciones(setDirecciones, clientSelect);
-    //    console.log(clientSelect);
-    //}, [clientSelect]);
-    //setea la lista de depositps del asesor
     (0, _react.useEffect)(()=>{
         (0, _apicallasesores.listDespostos)(setDepositos);
     }, [
@@ -3050,7 +3045,7 @@ const App = ()=>{
     ]);
     //direcciones.map 
     const options = depositos != null ? depositos.map((deposito)=>{
-        const uniendoArray = `${deposito.nuevo[0]} - ${deposito.nuevo[1]}`;
+        const uniendoArray = `${deposito.nuevo[0]} , ${deposito.nuevo[1]}`;
         return {
             label: uniendoArray,
             value: uniendoArray
@@ -3124,31 +3119,32 @@ const App = ()=>{
             className: "Wrapp-component",
             children: [
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                    className: "card",
+                    className: "cardComponent",
                     children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _comentarios.Comentarios), {
                         mesajeValue: mesajeValue,
                         setMesajeValue: setMesajeValue
                     }, void 0, false, {
                         fileName: "src/index.js",
-                        lineNumber: 227,
+                        lineNumber: 212,
                         columnNumber: 17
                     }, undefined)
                 }, void 0, false, {
                     fileName: "src/index.js",
-                    lineNumber: 226,
+                    lineNumber: 211,
                     columnNumber: 17
                 }, undefined),
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                    className: "card",
+                    className: "cardComponent",
                     children: [
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                             className: "Component-input",
                             children: [
                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h3", {
+                                    className: "title-card_component",
                                     children: "ID de cliente"
                                 }, void 0, false, {
                                     fileName: "src/index.js",
-                                    lineNumber: 235,
+                                    lineNumber: 220,
                                     columnNumber: 17
                                 }, undefined),
                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _antd.AutoComplete), {
@@ -3157,27 +3153,27 @@ const App = ()=>{
                                     placeholder: "Introduce ID",
                                     filterOption: true,
                                     onChange: (event)=>{
-                                        const newValue = event.split("-");
+                                        const newValue = event.split(",");
                                         const finalValue = newValue[0];
                                         console.log(finalValue);
                                         setClientSelect(finalValue.trim());
                                     }
                                 }, void 0, false, {
                                     fileName: "src/index.js",
-                                    lineNumber: 236,
+                                    lineNumber: 221,
                                     columnNumber: 17
                                 }, undefined),
                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                                     className: "divider"
                                 }, void 0, false, {
                                     fileName: "src/index.js",
-                                    lineNumber: 253,
+                                    lineNumber: 238,
                                     columnNumber: 17
                                 }, undefined)
                             ]
                         }, void 0, true, {
                             fileName: "src/index.js",
-                            lineNumber: 234,
+                            lineNumber: 219,
                             columnNumber: 17
                         }, undefined),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _sedesList.SedesList), {
@@ -3189,33 +3185,33 @@ const App = ()=>{
                                     setAdressSelect: setAdressSelect
                                 }, direccion, false, {
                                     fileName: "src/index.js",
-                                    lineNumber: 261,
+                                    lineNumber: 246,
                                     columnNumber: 25
                                 }, undefined)) : /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
                                 className: "nonInfo",
                                 children: " Introduce un ID de cliente para ver las direcciones disponibles "
                             }, void 0, false, {
                                 fileName: "src/index.js",
-                                lineNumber: 266,
+                                lineNumber: 251,
                                 columnNumber: 26
                             }, undefined)
                         }, void 0, false, {
                             fileName: "src/index.js",
-                            lineNumber: 258,
+                            lineNumber: 243,
                             columnNumber: 17
                         }, undefined)
                     ]
                 }, void 0, true, {
                     fileName: "src/index.js",
-                    lineNumber: 232,
+                    lineNumber: 217,
                     columnNumber: 17
                 }, undefined),
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                    className: "card",
+                    className: "cardComponent",
                     children: [
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _totalSend.TotalSend), {}, void 0, false, {
                             fileName: "src/index.js",
-                            lineNumber: 270,
+                            lineNumber: 255,
                             columnNumber: 17
                         }, undefined),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _antd.Button), {
@@ -3226,19 +3222,19 @@ const App = ()=>{
                             children: "Pedir Cotizaci\xf3n"
                         }, void 0, false, {
                             fileName: "src/index.js",
-                            lineNumber: 271,
+                            lineNumber: 256,
                             columnNumber: 17
                         }, undefined)
                     ]
                 }, void 0, true, {
                     fileName: "src/index.js",
-                    lineNumber: 269,
+                    lineNumber: 254,
                     columnNumber: 17
                 }, undefined)
             ]
         }, void 0, true, {
             fileName: "src/index.js",
-            lineNumber: 223,
+            lineNumber: 208,
             columnNumber: 13
         }, undefined)
     }, void 0, false);
@@ -3247,7 +3243,7 @@ _s(App, "51Rsq144FzJxaXtk48heseroxGE=");
 _c = App;
 (0, _reactDomDefault.default).render(/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)(App, {}, void 0, false, {
     fileName: "src/index.js",
-    lineNumber: 284,
+    lineNumber: 269,
     columnNumber: 17
 }, undefined), document.getElementById("root"));
 var _c;
@@ -3258,7 +3254,7 @@ $RefreshReg$(_c, "App");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react-dom":"j6uA9","./IdInput":"j8Nil","./Sedes":"7cLAx","./SedesList":"7vo8c","./TotalSend":"gQ1kC","./Comentarios":"PvCzL","./apicallasesores":"4Hw1M","./apicalldepositos":"5ACdr","react":"21dqq","./index.css":"irmnC","axios":"jo6P5","antd":"6C7kW","sweetalert2":"1HyFr","sweetalert2-react-content":"7jLQB","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","../assets/icon-done.svg":"5VElN"}],"iTorj":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react-dom":"j6uA9","./IdInput":"j8Nil","./Sedes":"7cLAx","./SedesList":"7vo8c","./TotalSend":"gQ1kC","./Comentarios":"PvCzL","./apicallasesores":"4Hw1M","./apicalldepositos":"5ACdr","react":"21dqq","../assets/icon-done.svg":"5VElN","./index.css":"irmnC","axios":"jo6P5","antd":"6C7kW","sweetalert2":"1HyFr","sweetalert2-react-content":"7jLQB","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"iTorj":[function(require,module,exports) {
 "use strict";
 module.exports = require("ee51401569654d91");
 
@@ -27727,6 +27723,7 @@ function SedesList(props) {
         className: "list-sedes",
         children: [
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h3", {
+                className: "title-card_component",
                 children: "Direcci\xf3n de dep\xf3sito"
             }, void 0, false, {
                 fileName: "src/SedesList.js",
@@ -27769,20 +27766,22 @@ parcelHelpers.export(exports, "TotalSend", ()=>TotalSend) // <button className='
 ;
 var _jsxDevRuntime = require("react/jsx-dev-runtime");
 var _totalSendCss = require("./TotalSend.css");
-const totalsend = "5";
+//const totalsend = "5"
 function TotalSend() {
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
         children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
             className: "wrapp-head-total",
             children: [
-                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h3", {
+                    className: "title-card_component",
                     children: "Total a cotizar "
                 }, void 0, false, {
                     fileName: "src/TotalSend.js",
                     lineNumber: 7,
                     columnNumber: 13
                 }, this),
-                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h3", {
+                    className: "title-card_component",
                     children: [
                         totalsend,
                         " productos"
@@ -27854,6 +27853,7 @@ function Comentarios({ mesajeValue, setMesajeValue }) {
                 onClick: changeClass,
                 children: [
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h3", {
+                        className: "title-card_component",
                         children: [
                             "Agregar comentarios ",
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
@@ -27861,7 +27861,7 @@ function Comentarios({ mesajeValue, setMesajeValue }) {
                             }, void 0, false, {
                                 fileName: "src/Comentarios.js",
                                 lineNumber: 44,
-                                columnNumber: 37
+                                columnNumber: 70
                             }, this)
                         ]
                     }, void 0, true, {
@@ -27887,6 +27887,7 @@ function Comentarios({ mesajeValue, setMesajeValue }) {
                 className: `wrapp-input-text-area--hidde${toggleClass}`,
                 children: [
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h3", {
+                        className: "TextComment",
                         children: insertMesaje
                     }, void 0, false, {
                         fileName: "src/Comentarios.js",
@@ -28013,7 +28014,7 @@ var _axios = require("axios");
 var _axiosDefault = parcelHelpers.interopDefault(_axios);
 var _micromatch = require("micromatch");
 //${987654321}
-const asesorIdshopify = "987654321";
+//const asesorIdshopify = "MTY15";
 const listDespostos = async (state)=>{
     const peticion = await (0, _axiosDefault.default).get(`https://api.airtable.com/v0/appVwlmLP1164Ceku/tblA5nanxMBvyKiY9?filterByFormula=Find(%22${asesorIdshopify}%22%2C+idAsesor)`, {
         headers: {
@@ -37781,7 +37782,10 @@ const listDirecciones = async (state, id)=>{
     }
 };
 
-},{"axios":"jo6P5","micromatch":"aeGye","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"irmnC":[function() {},{}],"6C7kW":[function(require,module,exports) {
+},{"axios":"jo6P5","micromatch":"aeGye","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"5VElN":[function(require,module,exports) {
+module.exports = require("96288c55a39efe19").getBundleURL("bLxZJ") + "icon-done.4565ab4f.svg" + "?" + Date.now();
+
+},{"96288c55a39efe19":"lgJ39"}],"irmnC":[function() {},{}],"6C7kW":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "Affix", ()=>(0, _affixDefault.default));
@@ -66795,9 +66799,6 @@ exports.hydrateRoot = function(c, h, o) {
     }
 };
 
-},{"aaccff5d309d9239":"j6uA9"}],"5VElN":[function(require,module,exports) {
-module.exports = require("96288c55a39efe19").getBundleURL("bLxZJ") + "icon-done.4565ab4f.svg" + "?" + Date.now();
-
-},{"96288c55a39efe19":"lgJ39"}]},["icZzK","1xC6H","8lqZg"], "8lqZg", "parcelRequired59a")
+},{"aaccff5d309d9239":"j6uA9"}]},["icZzK","1xC6H","8lqZg"], "8lqZg", "parcelRequired59a")
 
 //# sourceMappingURL=index.975ef6c8.js.map

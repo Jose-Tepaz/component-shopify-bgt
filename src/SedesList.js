@@ -7,7 +7,7 @@ function SedesList (props) {
     return (
         <div className="list-sedes">
                
-                <h3>Dirección de depósito</h3>
+                <h3 className='title-card_component'>Dirección de depósito</h3>
                 <ul>
                     {props.children}
                 </ul>

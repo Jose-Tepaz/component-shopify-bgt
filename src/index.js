@@ -54,9 +54,9 @@ const App =() => {
 
    
     //SE OCULTA AL ENVIAR A PRODUCCION
-    const finalsend = "Lista de productos";
-    const asesorIdshopify = "987654321";
-    const emailAsesor = "jose@acueducto.studio";
+    //const finalsend = "Lista de productos";
+    //const asesorIdshopify = "987654321";
+    //const emailAsesor = "jose@acueducto.studio";
 
 // !!--- Send POST data to Airtable ---!!
 async function enviandoDatos() {
@@ -98,13 +98,8 @@ async function enviandoDatos() {
     }
         
     } catch (error) {
-        console.log(error)
-        
-    }
-
-    
-    
-    
+        console.log(error)      
+    }  
 }
 
 // !!--- End this script ---!! //
@@ -117,26 +112,16 @@ async function enviandoDatos() {
         //console.log(clientSelect);
     }, [clientSelect]);
 
-
-    //useEffect(() => {
-    //    listDirecciones(setDirecciones, clientSelect);
-    //    console.log(clientSelect);
-    //}, [clientSelect]);
-
-    //setea la lista de depositps del asesor
-
     useEffect(() => {
         listDespostos(setDepositos);
     }, [depositos]);
     
 
-
-
     //direcciones.map 
 
    const options = depositos != null ? depositos.map( (deposito) => {
 
-    const uniendoArray = `${deposito.nuevo[0]} - ${deposito.nuevo[1]}`
+    const uniendoArray = `${deposito.nuevo[0]} , ${deposito.nuevo[1]}`
     
     return {
         label: uniendoArray,
@@ -223,16 +208,16 @@ const alertaError=()=>{
             <div className='Wrapp-component'>
             
 
-                <div className='card'>
+                <div className='cardComponent'>
                 <Comentarios
                 mesajeValue={mesajeValue}
                 setMesajeValue={setMesajeValue}               
                 />                   
                 </div>
-                <div className='card'>
+                <div className='cardComponent'>
                             
                 <div className='Component-input' >
-                <h3>ID de cliente</h3>
+                <h3 className='title-card_component'>ID de cliente</h3>
                 <AutoComplete  
                 
                 className='inputSearch'
@@ -242,11 +227,11 @@ const alertaError=()=>{
                 onChange={
                     (event) => {
                         
-                        const newValue = event.split("-");
+                        const newValue = event.split(",");
                         const finalValue = newValue[0];
                         console.log(finalValue);
- 
-                        setClientSelect(finalValue.trim());                      
+                        setClientSelect(finalValue.trim());        
+                                        
                     }
                 }
                 />
@@ -266,7 +251,7 @@ const alertaError=()=>{
                     ) : (<p className='nonInfo'> Introduce un ID de cliente para ver las direcciones disponibles </p>) }                              
                 </SedesList>
                 </div>
-                <div className='card'>
+                <div className='cardComponent'>
                 <TotalSend />
                 <Button               
                 type="primary"

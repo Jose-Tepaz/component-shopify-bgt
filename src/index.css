@@ -18,10 +18,10 @@ code {
     width: 100%;
     display: flex;
     flex-direction: column;
-    gap: 0px;
+    gap: 16px;
 }
 
-.card {
+.cardComponent {
     padding: 24px 32px;
     border: 1px solid #e1e3e4;
     border-radius: 25px;
@@ -30,11 +30,11 @@ code {
     gap: 16px;
 }
 
-h3 {
+.title-card_component {
     font-family: 'Neue montreal';
     color: #3C4549;
-    font-weight: 500;
-    font-size: 16px;
+    font-weight: 600;
+    font-size: 18px;
     margin: 0px;
 }
 

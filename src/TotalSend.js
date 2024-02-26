@@ -1,11 +1,11 @@
 import './TotalSend.css';
-const totalsend = "5"
+//const totalsend = "5"
 function TotalSend () {
     return (
         <div>
             <div className='wrapp-head-total'>
-            <p>Total a cotizar </p>
-            <p>{totalsend} productos</p>
+            <h3 className='title-card_component'>Total a cotizar </h3>
+            <h3 className='title-card_component'>{totalsend} productos</h3>
             </div>
             
         </div>

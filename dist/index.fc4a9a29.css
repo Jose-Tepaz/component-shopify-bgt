@@ -57,7 +57,7 @@ input[type="radio"] {
   padding: 8px 16px 8px 48px;
   font-family: Neue montreal;
   font-size: 16px;
-  font-weight: 500;
+  font-weight: 600;
   display: flex;
 }
 
@@ -209,6 +209,17 @@ textarea:focus {
   display: none;
 }
 
+.TextComment {
+  color: #3c4549;
+  border-radius: 16px;
+  flex-direction: column;
+  width: 100%;
+  font-family: Neue montreal;
+  font-size: 18px;
+  font-weight: 400;
+  display: flex;
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, Courier New, monospace;
 }
@@ -224,13 +235,13 @@ code {
 
 .Wrapp-component {
   flex-direction: column;
-  gap: 0;
+  gap: 16px;
   width: 100%;
   padding: 0;
   display: flex;
 }
 
-.card {
+.cardComponent {
   border: 1px solid #e1e3e4;
   border-radius: 25px;
   flex-direction: column;
@@ -239,12 +250,12 @@ code {
   display: flex;
 }
 
-h3 {
+.title-card_component {
   color: #3c4549;
   margin: 0;
   font-family: Neue montreal;
-  font-size: 16px;
-  font-weight: 500;
+  font-size: 18px;
+  font-weight: 600;
 }
 
 .nonInfo {
