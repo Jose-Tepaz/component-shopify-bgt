@@ -80,6 +80,9 @@ async function enviandoDatos() {
                     "emailTelemarketing": `${telemarkDataApi}`,
                     "Asesor": `${asesorIdshopify}`,
                     "emailAsesor": `${emailAsesor}`,
+                    "NameProduct": `${nombreDeProductoAPI}`,
+                    "SkuProduct": `${skuDeProductoAPI}`,
+                    "CantidadProduct": `${cantidadDeProductoAPI}`,
 
                 }
             }],
