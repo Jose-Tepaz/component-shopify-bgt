@@ -83,6 +83,9 @@ async function enviandoDatos() {
                     "NameProduct": `${nombreDeProductoAPI}`,
                     "SkuProduct": `${skuDeProductoAPI}`,
                     "CantidadProduct": `${cantidadDeProductoAPI}`,
+                    "SolicitudPor": "Asesor",
+                    "Deposito": `${idDataApi}`,
+
 
                 }
             }],
@@ -177,7 +180,11 @@ async function enviandoDatos() {
 
     }
 }).then((result) => {
-    window.location = '/';
+    window.location = '/cart/clear';
+    setTimeout(function(){
+        window.location = '/';
+    }, 1000);
+    
 });
 }
 
