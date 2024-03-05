@@ -36,8 +36,8 @@ const App =() => {
 
     const [dataClient, setDataClient] = React.useState([]);
 
-     //Estado que activa el botón
-     const [activeBtn, setActiveBtn] = React.useState(true);
+    //Estado que activa el botón
+    const [activeBtn, setActiveBtn] = React.useState(true);
 
     const direccionesDataApi = dataClient != null ? dataClient.DireccionesDepositos: [];
     const idDataApi = dataClient != null ? dataClient.IDcliente: [];
@@ -120,7 +120,6 @@ async function enviandoDatos() {
 
 });
 
-
     //setea la direccion del deposito a buscar
 
     useEffect(() => {
@@ -147,8 +146,6 @@ async function enviandoDatos() {
     }
    } ) : [] ;
 
-
-
    //Load BTN
    const [loadings, setLoadings] = useState([]);
    const enterLoading = (index) => {
@@ -163,6 +160,7 @@ async function enviandoDatos() {
        setLoadings((prevLoadings) => {
          const newLoadings = [...prevLoadings];
          newLoadings[index] = false;
+         orderCreate();
          enviandoDatos();
          
          //location.reload();

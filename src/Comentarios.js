@@ -33,9 +33,6 @@ function Comentarios({
     let hiddeBtn = insertMesaje == null ? ' editBtn--hidde' : '';
     
 
-
-
-
     return (
         <div>
             <div 

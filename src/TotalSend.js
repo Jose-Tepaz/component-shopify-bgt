@@ -12,4 +12,5 @@ function TotalSend () {
     )
 }
 export {TotalSend};
+
 // <button className='BtnSend'>Pedir cotización</button> 
