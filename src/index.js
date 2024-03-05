@@ -110,6 +110,16 @@ async function enviandoDatos() {
 
 // !!--- End this script ---!! //
 
+   //verifica si tenemos conección
+   useEffect(() => {
+    if(navigator.onLine) {
+        console.log("estamos en linea")
+    } else {
+        alertaError();
+    }
+
+});
+
 
     //setea la direccion del deposito a buscar
 
@@ -207,7 +217,7 @@ const alertaError=()=>{
 
     }
 }).then((result) => {
-    window.location = '/';
+    location.reload();
 });
 }
 
