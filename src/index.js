@@ -173,25 +173,32 @@ async function enviandoDatos() {
    const alertaSucces=()=>{
     Swal.fire({
     title: "Solicitaste tu cotización",
-    html: "Te enviaremos una copia de tu cotización a tu correo electrónico y nos comunicaremos contigo en un plazo de 3 días hábiles para confirmar todos los detalles.",
+    html: "Te enviaremos una copia de tu cotización a tu correo electrónico y nos comunicaremos contigo a la brevedad para confirmar todos los detalles.",
     imageUrl: "https://cdn.shopify.com/s/files/1/0633/1459/1884/files/icon-done.svg?v=1706909092",
   imageWidth: 60,
   imageHeight: 60,
   showCloseButton: true,
-  showConfirmButton: false,
-    
+  confirmButtonText: `Volver al inicio`,
     customClass: {
         popup: 'popAlert',
         title: 'titlePopup',
         htmlContainer: 'textpopup',
+        confirmButton: 'clear-cart',
         closeButton: 'clodeBtnBtn'
 
     }
 }).then((result) => {
-    window.location = '/cart/clear';
-    setTimeout(function(){
-        window.location = '/';
-    }, 1000);
+    function clearMyCart () {
+        $.ajax({
+            type: "POST",
+            url: '/cart/clear.js',
+            success: function(){
+              window.location.href = "/";
+            },
+            dataType: 'json'
+          }); 
+      }
+      clearMyCart ();
     
 });
 }
