@@ -1,5 +1,6 @@
 import './TotalSend.css';
-//const totalsend = "5"
+//Comentamos esta constante antes de mandar a producción ya que tomamos esta variable desde shopify
+const totalsend = "5"
 function TotalSend () {
     return (
         <div>

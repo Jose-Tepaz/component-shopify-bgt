@@ -2,7 +2,8 @@ import axios from "axios";
 import { all } from "micromatch";
 
 //${987654321}
-//const asesorIdshopify = "MTY15";
+//Comentamos esta variable antes de enviar a producción ya que tomamos este id desde shopify
+const asesorIdshopify = "MTY15";
 
 const listDespostos = async(state) => {
 

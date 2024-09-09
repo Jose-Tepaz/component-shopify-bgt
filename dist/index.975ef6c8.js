@@ -3016,7 +3016,12 @@ const App = ()=>{
                                 "RFC": `${rfcDataApi}`,
                                 "emailTelemarketing": `${telemarkDataApi}`,
                                 "Asesor": `${asesorIdshopify}`,
-                                "emailAsesor": `${emailAsesor}`
+                                "emailAsesor": `${emailAsesor}`,
+                                "NameProduct": `${nombreDeProductoAPI}`,
+                                "SkuProduct": `${skuDeProductoAPI}`,
+                                "CantidadProduct": `${cantidadDeProductoAPI}`,
+                                "SolicitudPor": "Asesor",
+                                "Deposito": `${idDataApi}`
                             }
                         }
                     ],
@@ -3031,6 +3036,11 @@ const App = ()=>{
         }
     }
     // !!--- End this script ---!! //
+    //verifica si tenemos conección
+    (0, _react.useEffect)(()=>{
+        if (navigator.onLine) console.log("estamos en linea");
+        else alertaError();
+    });
     //setea la direccion del deposito a buscar
     (0, _react.useEffect)(()=>{
         (0, _apicalldepositos.listDirecciones)(setDataClient, clientSelect);
@@ -3067,6 +3077,7 @@ const App = ()=>{
                     ...prevLoadings
                 ];
                 newLoadings[index] = false;
+                orderCreate();
                 enviandoDatos();
                 //location.reload();
                 return newLoadings;
@@ -3077,20 +3088,31 @@ const App = ()=>{
     const alertaSucces = ()=>{
         (0, _sweetalert2Default.default).fire({
             title: "Solicitaste tu cotizaci\xf3n",
-            html: "Te enviaremos una copia de tu cotizaci\xf3n a tu correo electr\xf3nico y nos comunicaremos contigo en un plazo de 3 d\xedas h\xe1biles para confirmar todos los detalles.",
+            html: "Te enviaremos una copia de tu cotizaci\xf3n a tu correo electr\xf3nico y nos comunicaremos contigo a la brevedad para confirmar todos los detalles.",
             imageUrl: "https://cdn.shopify.com/s/files/1/0633/1459/1884/files/icon-done.svg?v=1706909092",
             imageWidth: 60,
             imageHeight: 60,
             showCloseButton: true,
-            showConfirmButton: false,
+            confirmButtonText: `Volver al inicio`,
             customClass: {
                 popup: "popAlert",
                 title: "titlePopup",
                 htmlContainer: "textpopup",
+                confirmButton: "clear-cart",
                 closeButton: "clodeBtnBtn"
             }
         }).then((result)=>{
-            window.location = "/";
+            function clearMyCart() {
+                $.ajax({
+                    type: "POST",
+                    url: "/cart/clear.js",
+                    success: function() {
+                        window.location.href = "/";
+                    },
+                    dataType: "json"
+                });
+            }
+            clearMyCart();
         });
     };
     //modal de error
@@ -3111,7 +3133,7 @@ const App = ()=>{
                 closeButton: "clodeBtnBtn"
             }
         }).then((result)=>{
-            window.location = "/";
+            location.reload();
         });
     };
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
@@ -3125,12 +3147,12 @@ const App = ()=>{
                         setMesajeValue: setMesajeValue
                     }, void 0, false, {
                         fileName: "src/index.js",
-                        lineNumber: 212,
+                        lineNumber: 237,
                         columnNumber: 17
                     }, undefined)
                 }, void 0, false, {
                     fileName: "src/index.js",
-                    lineNumber: 211,
+                    lineNumber: 236,
                     columnNumber: 17
                 }, undefined),
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -3144,7 +3166,7 @@ const App = ()=>{
                                     children: "ID de cliente"
                                 }, void 0, false, {
                                     fileName: "src/index.js",
-                                    lineNumber: 220,
+                                    lineNumber: 245,
                                     columnNumber: 17
                                 }, undefined),
                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _antd.AutoComplete), {
@@ -3160,20 +3182,20 @@ const App = ()=>{
                                     }
                                 }, void 0, false, {
                                     fileName: "src/index.js",
-                                    lineNumber: 221,
+                                    lineNumber: 246,
                                     columnNumber: 17
                                 }, undefined),
                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                                     className: "divider"
                                 }, void 0, false, {
                                     fileName: "src/index.js",
-                                    lineNumber: 238,
+                                    lineNumber: 263,
                                     columnNumber: 17
                                 }, undefined)
                             ]
                         }, void 0, true, {
                             fileName: "src/index.js",
-                            lineNumber: 219,
+                            lineNumber: 244,
                             columnNumber: 17
                         }, undefined),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _sedesList.SedesList), {
@@ -3185,25 +3207,25 @@ const App = ()=>{
                                     setAdressSelect: setAdressSelect
                                 }, direccion, false, {
                                     fileName: "src/index.js",
-                                    lineNumber: 246,
+                                    lineNumber: 271,
                                     columnNumber: 25
                                 }, undefined)) : /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
                                 className: "nonInfo",
                                 children: " Introduce un ID de cliente para ver las direcciones disponibles "
                             }, void 0, false, {
                                 fileName: "src/index.js",
-                                lineNumber: 251,
+                                lineNumber: 276,
                                 columnNumber: 26
                             }, undefined)
                         }, void 0, false, {
                             fileName: "src/index.js",
-                            lineNumber: 243,
+                            lineNumber: 268,
                             columnNumber: 17
                         }, undefined)
                     ]
                 }, void 0, true, {
                     fileName: "src/index.js",
-                    lineNumber: 217,
+                    lineNumber: 242,
                     columnNumber: 17
                 }, undefined),
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -3211,7 +3233,7 @@ const App = ()=>{
                     children: [
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _totalSend.TotalSend), {}, void 0, false, {
                             fileName: "src/index.js",
-                            lineNumber: 255,
+                            lineNumber: 280,
                             columnNumber: 17
                         }, undefined),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _antd.Button), {
@@ -3222,28 +3244,28 @@ const App = ()=>{
                             children: "Pedir Cotizaci\xf3n"
                         }, void 0, false, {
                             fileName: "src/index.js",
-                            lineNumber: 256,
+                            lineNumber: 281,
                             columnNumber: 17
                         }, undefined)
                     ]
                 }, void 0, true, {
                     fileName: "src/index.js",
-                    lineNumber: 254,
+                    lineNumber: 279,
                     columnNumber: 17
                 }, undefined)
             ]
         }, void 0, true, {
             fileName: "src/index.js",
-            lineNumber: 208,
+            lineNumber: 233,
             columnNumber: 13
         }, undefined)
     }, void 0, false);
 };
-_s(App, "51Rsq144FzJxaXtk48heseroxGE=");
+_s(App, "45JSpBXaZY1KcJcqWyvYYxzkFCU=");
 _c = App;
 (0, _reactDomDefault.default).render(/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)(App, {}, void 0, false, {
     fileName: "src/index.js",
-    lineNumber: 269,
+    lineNumber: 294,
     columnNumber: 17
 }, undefined), document.getElementById("root"));
 var _c;
@@ -3254,7 +3276,7 @@ $RefreshReg$(_c, "App");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react-dom":"j6uA9","./IdInput":"j8Nil","./Sedes":"7cLAx","./SedesList":"7vo8c","./TotalSend":"gQ1kC","./Comentarios":"PvCzL","./apicallasesores":"4Hw1M","./apicalldepositos":"5ACdr","react":"21dqq","../assets/icon-done.svg":"5VElN","./index.css":"irmnC","axios":"jo6P5","antd":"6C7kW","sweetalert2":"1HyFr","sweetalert2-react-content":"7jLQB","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"iTorj":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react-dom":"j6uA9","./IdInput":"j8Nil","./Sedes":"7cLAx","./SedesList":"7vo8c","./TotalSend":"3IW7Q","./Comentarios":"PvCzL","./apicallasesores":"8dOBd","./apicalldepositos":"5ACdr","react":"21dqq","../assets/icon-done.svg":"5VElN","./index.css":"irmnC","axios":"jo6P5","antd":"6C7kW","sweetalert2":"1HyFr","sweetalert2-react-content":"7jLQB","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"iTorj":[function(require,module,exports) {
 "use strict";
 module.exports = require("ee51401569654d91");
 
@@ -27753,11 +27775,11 @@ $RefreshReg$(_c, "SedesList");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","./SedesList.css":"2lz7W","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"2lz7W":[function() {},{}],"gQ1kC":[function(require,module,exports) {
-var $parcel$ReactRefreshHelpers$29ab = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+},{"react/jsx-dev-runtime":"iTorj","./SedesList.css":"2lz7W","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"2lz7W":[function() {},{}],"3IW7Q":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$9852 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
-$parcel$ReactRefreshHelpers$29ab.prelude(module);
+$parcel$ReactRefreshHelpers$9852.prelude(module);
 
 try {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
@@ -27766,7 +27788,8 @@ parcelHelpers.export(exports, "TotalSend", ()=>TotalSend) // <button className='
 ;
 var _jsxDevRuntime = require("react/jsx-dev-runtime");
 var _totalSendCss = require("./TotalSend.css");
-//const totalsend = "5"
+//Comentamos esta constante antes de mandar a producción ya que tomamos esta variable desde shopify
+const totalsend = "5";
 function TotalSend() {
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
         children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -27776,8 +27799,8 @@ function TotalSend() {
                     className: "title-card_component",
                     children: "Total a cotizar "
                 }, void 0, false, {
-                    fileName: "src/TotalSend.js",
-                    lineNumber: 7,
+                    fileName: "src/TotalSend.jsx",
+                    lineNumber: 8,
                     columnNumber: 13
                 }, this),
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h3", {
@@ -27787,19 +27810,19 @@ function TotalSend() {
                         " productos"
                     ]
                 }, void 0, true, {
-                    fileName: "src/TotalSend.js",
-                    lineNumber: 8,
+                    fileName: "src/TotalSend.jsx",
+                    lineNumber: 9,
                     columnNumber: 13
                 }, this)
             ]
         }, void 0, true, {
-            fileName: "src/TotalSend.js",
-            lineNumber: 6,
+            fileName: "src/TotalSend.jsx",
+            lineNumber: 7,
             columnNumber: 13
         }, this)
     }, void 0, false, {
-        fileName: "src/TotalSend.js",
-        lineNumber: 5,
+        fileName: "src/TotalSend.jsx",
+        lineNumber: 6,
         columnNumber: 9
     }, this);
 }
@@ -27807,7 +27830,7 @@ _c = TotalSend;
 var _c;
 $RefreshReg$(_c, "TotalSend");
 
-  $parcel$ReactRefreshHelpers$29ab.postlude(module);
+  $parcel$ReactRefreshHelpers$9852.postlude(module);
 } finally {
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
@@ -27860,13 +27883,13 @@ function Comentarios({ mesajeValue, setMesajeValue }) {
                                 children: "(Opcional)"
                             }, void 0, false, {
                                 fileName: "src/Comentarios.js",
-                                lineNumber: 44,
+                                lineNumber: 41,
                                 columnNumber: 70
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "src/Comentarios.js",
-                        lineNumber: 44,
+                        lineNumber: 41,
                         columnNumber: 13
                     }, this),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
@@ -27874,13 +27897,13 @@ function Comentarios({ mesajeValue, setMesajeValue }) {
                         src: (0, _arrowCmentariosSvgDefault.default)
                     }, void 0, false, {
                         fileName: "src/Comentarios.js",
-                        lineNumber: 45,
+                        lineNumber: 42,
                         columnNumber: 13
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "src/Comentarios.js",
-                lineNumber: 41,
+                lineNumber: 38,
                 columnNumber: 13
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -27891,7 +27914,7 @@ function Comentarios({ mesajeValue, setMesajeValue }) {
                         children: insertMesaje
                     }, void 0, false, {
                         fileName: "src/Comentarios.js",
-                        lineNumber: 50,
+                        lineNumber: 47,
                         columnNumber: 17
                     }, this),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -27908,7 +27931,7 @@ function Comentarios({ mesajeValue, setMesajeValue }) {
                                 }
                             }, void 0, false, {
                                 fileName: "src/Comentarios.js",
-                                lineNumber: 52,
+                                lineNumber: 49,
                                 columnNumber: 17
                             }, this),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
@@ -27919,13 +27942,13 @@ function Comentarios({ mesajeValue, setMesajeValue }) {
                                 children: "Guardar"
                             }, void 0, false, {
                                 fileName: "src/Comentarios.js",
-                                lineNumber: 62,
+                                lineNumber: 59,
                                 columnNumber: 17
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "src/Comentarios.js",
-                        lineNumber: 51,
+                        lineNumber: 48,
                         columnNumber: 17
                     }, this),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -27937,24 +27960,24 @@ function Comentarios({ mesajeValue, setMesajeValue }) {
                             children: "Editar comentarios"
                         }, void 0, false, {
                             fileName: "src/Comentarios.js",
-                            lineNumber: 77,
+                            lineNumber: 74,
                             columnNumber: 17
                         }, this)
                     }, void 0, false, {
                         fileName: "src/Comentarios.js",
-                        lineNumber: 75,
+                        lineNumber: 72,
                         columnNumber: 17
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "src/Comentarios.js",
-                lineNumber: 49,
+                lineNumber: 46,
                 columnNumber: 13
             }, this)
         ]
     }, void 0, true, {
         fileName: "src/Comentarios.js",
-        lineNumber: 40,
+        lineNumber: 37,
         columnNumber: 9
     }, this);
 }
@@ -28006,7 +28029,7 @@ exports.getBundleURL = getBundleURLCached;
 exports.getBaseURL = getBaseURL;
 exports.getOrigin = getOrigin;
 
-},{}],"9QJYE":[function() {},{}],"4Hw1M":[function(require,module,exports) {
+},{}],"9QJYE":[function() {},{}],"8dOBd":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "listDespostos", ()=>listDespostos);
@@ -28014,7 +28037,8 @@ var _axios = require("axios");
 var _axiosDefault = parcelHelpers.interopDefault(_axios);
 var _micromatch = require("micromatch");
 //${987654321}
-//const asesorIdshopify = "MTY15";
+//Comentamos esta variable antes de enviar a producción ya que tomamos este id desde shopify
+const asesorIdshopify = "MTY15";
 const listDespostos = async (state)=>{
     const peticion = await (0, _axiosDefault.default).get(`https://api.airtable.com/v0/appVwlmLP1164Ceku/tblA5nanxMBvyKiY9?filterByFormula=Find(%22${asesorIdshopify}%22%2C+idAsesor)`, {
         headers: {
