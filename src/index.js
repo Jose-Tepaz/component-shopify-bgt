@@ -24,7 +24,8 @@ const App =() => {
  
 
     //Mesaje value
-    const [mesajeValue, setMesajeValue] = React.useState("No hay comentarios");
+    //const [mesajeValue, setMesajeValue] = React.useState("No hay comentarios");
+    const [mesajeValue, setMesajeValue] = React.useState([]);
     //console.log(mesajeValue);
 
     const [searchValue, setSearchValue] = React.useState(null);

@@ -2972,7 +2972,8 @@ const App = ()=>{
     const [depositos, setDepositos] = (0, _reactDefault.default).useState(null);
     const [direcciones, setDirecciones] = (0, _reactDefault.default).useState(null);
     //Mesaje value
-    const [mesajeValue, setMesajeValue] = (0, _reactDefault.default).useState("No hay comentarios");
+    //const [mesajeValue, setMesajeValue] = React.useState("No hay comentarios");
+    const [mesajeValue, setMesajeValue] = (0, _reactDefault.default).useState([]);
     //console.log(mesajeValue);
     const [searchValue, setSearchValue] = (0, _reactDefault.default).useState(null);
     //console.log('Este es el valor ' + searchValue);
@@ -3147,12 +3148,12 @@ const App = ()=>{
                         setMesajeValue: setMesajeValue
                     }, void 0, false, {
                         fileName: "src/index.js",
-                        lineNumber: 237,
+                        lineNumber: 238,
                         columnNumber: 17
                     }, undefined)
                 }, void 0, false, {
                     fileName: "src/index.js",
-                    lineNumber: 236,
+                    lineNumber: 237,
                     columnNumber: 17
                 }, undefined),
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -3166,7 +3167,7 @@ const App = ()=>{
                                     children: "ID de cliente"
                                 }, void 0, false, {
                                     fileName: "src/index.js",
-                                    lineNumber: 245,
+                                    lineNumber: 246,
                                     columnNumber: 17
                                 }, undefined),
                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _antd.AutoComplete), {
@@ -3182,20 +3183,20 @@ const App = ()=>{
                                     }
                                 }, void 0, false, {
                                     fileName: "src/index.js",
-                                    lineNumber: 246,
+                                    lineNumber: 247,
                                     columnNumber: 17
                                 }, undefined),
                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                                     className: "divider"
                                 }, void 0, false, {
                                     fileName: "src/index.js",
-                                    lineNumber: 263,
+                                    lineNumber: 264,
                                     columnNumber: 17
                                 }, undefined)
                             ]
                         }, void 0, true, {
                             fileName: "src/index.js",
-                            lineNumber: 244,
+                            lineNumber: 245,
                             columnNumber: 17
                         }, undefined),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _sedesList.SedesList), {
@@ -3207,25 +3208,25 @@ const App = ()=>{
                                     setAdressSelect: setAdressSelect
                                 }, direccion, false, {
                                     fileName: "src/index.js",
-                                    lineNumber: 271,
+                                    lineNumber: 272,
                                     columnNumber: 25
                                 }, undefined)) : /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
                                 className: "nonInfo",
                                 children: " Introduce un ID de cliente para ver las direcciones disponibles "
                             }, void 0, false, {
                                 fileName: "src/index.js",
-                                lineNumber: 276,
+                                lineNumber: 277,
                                 columnNumber: 26
                             }, undefined)
                         }, void 0, false, {
                             fileName: "src/index.js",
-                            lineNumber: 268,
+                            lineNumber: 269,
                             columnNumber: 17
                         }, undefined)
                     ]
                 }, void 0, true, {
                     fileName: "src/index.js",
-                    lineNumber: 242,
+                    lineNumber: 243,
                     columnNumber: 17
                 }, undefined),
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -3233,7 +3234,7 @@ const App = ()=>{
                     children: [
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _totalSend.TotalSend), {}, void 0, false, {
                             fileName: "src/index.js",
-                            lineNumber: 280,
+                            lineNumber: 281,
                             columnNumber: 17
                         }, undefined),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _antd.Button), {
@@ -3244,28 +3245,28 @@ const App = ()=>{
                             children: "Pedir Cotizaci\xf3n"
                         }, void 0, false, {
                             fileName: "src/index.js",
-                            lineNumber: 281,
+                            lineNumber: 282,
                             columnNumber: 17
                         }, undefined)
                     ]
                 }, void 0, true, {
                     fileName: "src/index.js",
-                    lineNumber: 279,
+                    lineNumber: 280,
                     columnNumber: 17
                 }, undefined)
             ]
         }, void 0, true, {
             fileName: "src/index.js",
-            lineNumber: 233,
+            lineNumber: 234,
             columnNumber: 13
         }, undefined)
     }, void 0, false);
 };
-_s(App, "45JSpBXaZY1KcJcqWyvYYxzkFCU=");
+_s(App, "ZVLXZAxrKrp3lEiFcmd63qGbFcg=");
 _c = App;
 (0, _reactDomDefault.default).render(/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)(App, {}, void 0, false, {
     fileName: "src/index.js",
-    lineNumber: 294,
+    lineNumber: 295,
     columnNumber: 17
 }, undefined), document.getElementById("root"));
 var _c;
@@ -27853,48 +27854,75 @@ var _arrowCmentariosSvgDefault = parcelHelpers.interopDefault(_arrowCmentariosSv
 var _comentariosCss = require("./Comentarios.css");
 var _antd = require("antd");
 var _s = $RefreshSig$();
-const handleChange = (value)=>{
-    console.log(`selected ${value}`);
-};
-const options = [
-    {
-        label: "SKU 1513-1531:",
-        value: "SKU 1513-1531:",
-        desc: "SKU 1513-1531:"
-    },
-    {
-        label: "SKU A513-1531",
-        value: "SKU A513-1531",
-        desc: "SKU A513-1531"
-    },
-    {
-        label: "SKU E513-1531",
-        value: "SKU E513-1531",
-        desc: "SKU E513-1531"
-    },
-    {
-        label: "SKU G513-1531",
-        value: "SKU G513-1531",
-        desc: "SKU G513-1531"
-    }
-];
 function Comentarios({ mesajeValue, setMesajeValue }) {
     _s();
-    const [showInput, setShowInput] = (0, _reactDefault.default).useState(false);
-    function changeClass() {
+    (0, _react.useEffect)(()=>{
+        console.log(mesajeValue);
+    //console.log(insertMesaje)
+    }, [
+        mesajeValue
+    ]);
+    /*Estado para mostrar el textarea*/ const [showInput, setShowInput] = (0, _reactDefault.default).useState(false);
+    /*Funcion para mostrar el textarea*/ function changeClass() {
         setShowInput((showInput)=>!showInput);
     }
     let toggleClass = showInput ? " wrapp-input-text-area" : "";
     let toggleClassArrow = showInput ? " imgArrow--active" : "";
-    const [insertMesaje, setInsertMesaje] = (0, _reactDefault.default).useState(null);
+    /*Estado para mostrar el valor del select en el text area*/ const [insertMesaje, setInsertMesaje] = (0, _reactDefault.default).useState("");
+    const [despliegaTextArea, setDespliegaTextArea] = (0, _reactDefault.default).useState(false);
+    /*Funcion para mostrar el valor del select en el text area*/ const handleChange = (value, option)=>{
+        console.log(value);
+        // Preserve the existing value of insertMesaje when the function runs again
+        setInsertMesaje(value + " : ");
+    };
+    /*Opciones para el select de SKUs*/ const options = [
+        {
+            label: "SKU 1513-1531",
+            value: "SKU 1513-1531",
+            desc: "SKU 1513-1531"
+        },
+        {
+            label: "SKU A513-1531",
+            value: "SKU A513-1531",
+            desc: "SKU A513-1531"
+        },
+        {
+            label: "SKU E513-1531",
+            value: "SKU E513-1531",
+            desc: "SKU E513-1531"
+        },
+        {
+            label: "SKU G513-1531",
+            value: "SKU G513-1531",
+            desc: "SKU G513-1531"
+        }
+    ];
     //Guarde el valor del text area en un nuevo estado y lo pinta
     function addvaluetoState(dataValues) {
         //setMesajeValue(dataValues)
         setInsertMesaje(dataValues);
     }
-    //Oculta el textarea despues de guardar el dato del estado
-    let changeclass = insertMesaje != null ? " wrapp-inpitMesaje--hide" : "";
-    let hiddeBtn = insertMesaje == null ? " editBtn--hidde" : "";
+    function visibilityTextare() {
+        setDespliegaTextArea(true);
+    }
+    /*Oculta el textarea despues de guardar el dato del estado*/ let changeclass = despliegaTextArea == true ? " wrapp-inpitMesaje--hide" : "";
+    /*let changeclass = insertMesaje != null ? ' wrapp-inpitMesaje--hide' : '';*/ let hiddeBtn = insertMesaje == null ? " editBtn--hidde" : "";
+    function guarndoDatoenMensajeValue(dataValues) {
+        //setMesajeValue(dataValues) 
+        // Preserve the existing value of mesajeValue when the function runs again
+        setMesajeValue((prevItems)=>[
+                ...prevItems,
+                dataValues
+            ]);
+    /*setMesajeValue(prevValue => {
+      // If there's an existing value, append the new value
+      
+      if (prevValue && prevValue !== "No hay comentarios") {
+        return prevValue + "\n" + dataValues + "\n";
+      }
+      // If there's no existing value or it's the default, just set the new value
+      return dataValues;
+    });*/ }
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
         children: [
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -27909,13 +27937,13 @@ function Comentarios({ mesajeValue, setMesajeValue }) {
                                 children: "(Opcional)"
                             }, void 0, false, {
                                 fileName: "src/Comentarios.jsx",
-                                lineNumber: 68,
+                                lineNumber: 110,
                                 columnNumber: 70
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "src/Comentarios.jsx",
-                        lineNumber: 68,
+                        lineNumber: 110,
                         columnNumber: 13
                     }, this),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
@@ -27923,13 +27951,13 @@ function Comentarios({ mesajeValue, setMesajeValue }) {
                         src: (0, _arrowCmentariosSvgDefault.default)
                     }, void 0, false, {
                         fileName: "src/Comentarios.jsx",
-                        lineNumber: 69,
+                        lineNumber: 111,
                         columnNumber: 13
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "src/Comentarios.jsx",
-                lineNumber: 65,
+                lineNumber: 107,
                 columnNumber: 13
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -27937,10 +27965,10 @@ function Comentarios({ mesajeValue, setMesajeValue }) {
                 children: [
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h3", {
                         className: "TextComment",
-                        children: insertMesaje
+                        children: mesajeValue
                     }, void 0, false, {
                         fileName: "src/Comentarios.jsx",
-                        lineNumber: 74,
+                        lineNumber: 116,
                         columnNumber: 17
                     }, this),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -27954,20 +27982,18 @@ function Comentarios({ mesajeValue, setMesajeValue }) {
                                         children: "Elije un Sku"
                                     }, void 0, false, {
                                         fileName: "src/Comentarios.jsx",
-                                        lineNumber: 78,
+                                        lineNumber: 120,
                                         columnNumber: 25
                                     }, this),
                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _antd.Select), {
-                                        mode: "multiple",
                                         style: {
                                             width: "100%"
                                         },
+                                        mode: "tag",
                                         placeholder: "select one country",
-                                        defaultValue: [
-                                            "china"
-                                        ],
-                                        onChange: addvaluetoState,
-                                        /*onChange={handleChange}*/ options: options,
+                                        defaultValue: [],
+                                        /*onChange={addvaluetoState}*/ onChange: handleChange,
+                                        options: options,
                                         optionRender: (option)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _antd.Space), {
                                                 children: [
                                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
@@ -27980,13 +28006,13 @@ function Comentarios({ mesajeValue, setMesajeValue }) {
                                             }, void 0, true, void 0, void 0)
                                     }, void 0, false, {
                                         fileName: "src/Comentarios.jsx",
-                                        lineNumber: 79,
+                                        lineNumber: 121,
                                         columnNumber: 25
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "src/Comentarios.jsx",
-                                lineNumber: 77,
+                                lineNumber: 119,
                                 columnNumber: 21
                             }, this),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("textarea", {
@@ -27995,29 +28021,32 @@ function Comentarios({ mesajeValue, setMesajeValue }) {
                                 placeholder: "Introduce tus comentarios",
                                 value: insertMesaje,
                                 rows: "4",
-                                onChange: (evetn)=>{
-                                    setMesajeValue(evetn.target.value);
+                                onChange: (event)=>{
+                                    //setMesajeValue(event.target.value)
+                                    setInsertMesaje(event.target.value);
                                 }
                             }, void 0, false, {
                                 fileName: "src/Comentarios.jsx",
-                                lineNumber: 101,
+                                lineNumber: 145,
                                 columnNumber: 17
                             }, this),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
                                 className: "guardarComents",
                                 onClick: ()=>{
-                                    addvaluetoState(mesajeValue), console.log("se activo");
+                                    guarndoDatoenMensajeValue(insertMesaje);
+                                    addvaluetoState(insertMesaje), visibilityTextare();
+                                    console.log("se activo");
                                 },
                                 children: "Guardar"
                             }, void 0, false, {
                                 fileName: "src/Comentarios.jsx",
-                                lineNumber: 111,
+                                lineNumber: 160,
                                 columnNumber: 17
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "src/Comentarios.jsx",
-                        lineNumber: 75,
+                        lineNumber: 117,
                         columnNumber: 17
                     }, this),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -28025,32 +28054,33 @@ function Comentarios({ mesajeValue, setMesajeValue }) {
                             className: `editBtn${hiddeBtn}`,
                             onClick: ()=>{
                                 setInsertMesaje(null);
+                                setDespliegaTextArea(false);
                             },
-                            children: "Editar comentarios"
+                            children: "Agregar comentarios"
                         }, void 0, false, {
                             fileName: "src/Comentarios.jsx",
-                            lineNumber: 126,
+                            lineNumber: 181,
                             columnNumber: 17
                         }, this)
                     }, void 0, false, {
                         fileName: "src/Comentarios.jsx",
-                        lineNumber: 124,
+                        lineNumber: 179,
                         columnNumber: 17
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "src/Comentarios.jsx",
-                lineNumber: 73,
+                lineNumber: 115,
                 columnNumber: 13
             }, this)
         ]
     }, void 0, true, {
         fileName: "src/Comentarios.jsx",
-        lineNumber: 64,
+        lineNumber: 106,
         columnNumber: 9
     }, this);
 }
-_s(Comentarios, "/tn8cuhdv2HR0+HdjEI3NgBnNyQ=");
+_s(Comentarios, "xAbbm5s2X/0ibr9Fcc6GY3X1yGY=");
 _c = Comentarios;
 var _c;
 $RefreshReg$(_c, "Comentarios");
