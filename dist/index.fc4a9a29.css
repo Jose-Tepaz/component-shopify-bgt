@@ -154,7 +154,7 @@ input:checked + span {
   letter-spacing: 2%;
   border: 1.5px solid #d9d9d9;
   border-radius: 12px;
-  width: 100%;
+  width: auto;
   padding: 8px 12px;
   font-family: Neue Montreal;
   font-size: 18px;
@@ -185,7 +185,7 @@ textarea:focus {
 
 .wrapp-inpitMesaje {
   flex-direction: column;
-  align-items: flex-start;
+  align-items: stretch;
   display: flex;
 }
 
@@ -217,6 +217,14 @@ textarea:focus {
   font-family: Neue montreal;
   font-size: 18px;
   font-weight: 400;
+  display: flex;
+}
+
+.wrapp-select-sku {
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+  margin-bottom: 16px;
   display: flex;
 }
 
@@ -255,7 +263,7 @@ code {
   margin: 0;
   font-family: Neue montreal;
   font-size: 18px;
-  font-weight: 600;
+  font-weight: 500;
 }
 
 .nonInfo {

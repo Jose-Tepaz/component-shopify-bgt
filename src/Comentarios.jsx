@@ -1,8 +1,34 @@
 import React from 'react';
 import arrow from '../assets/arrow-cmentarios.svg';
 import './Comentarios.css';
+import { Select, Space, Collapse } from 'antd';
 
 
+const handleChange = (value) => {
+    console.log(`selected ${value}`);
+  };
+  const options = [
+    {
+      label: 'SKU 1513-1531:',
+      value: 'SKU 1513-1531:',
+      desc: 'SKU 1513-1531:',
+    },
+    {
+      label: 'SKU A513-1531',
+      value: 'SKU A513-1531',
+      desc: 'SKU A513-1531',
+    },
+    {
+      label: 'SKU E513-1531',
+      value: 'SKU E513-1531',
+      desc: 'SKU E513-1531',
+    },
+    {
+      label: 'SKU G513-1531',
+      value: 'SKU G513-1531',
+      desc: 'SKU G513-1531',
+    },
+  ];
 
 function Comentarios({
     mesajeValue,
@@ -20,18 +46,19 @@ function Comentarios({
 
     const [insertMesaje, setInsertMesaje] = React.useState(null);
 
-    //Guarde el vaolor del text area en un nuevo estado y lo pinta
+    //Guarde el valor del text area en un nuevo estado y lo pinta
     function addvaluetoState (dataValues) {
         //setMesajeValue(dataValues)
         setInsertMesaje(dataValues);
     }
 
-    //Oculta el text area despues de guardar el dato del estado
+    //Oculta el textarea despues de guardar el dato del estado
     
     let changeclass = insertMesaje != null ? ' wrapp-inpitMesaje--hide' : '';
 
     let hiddeBtn = insertMesaje == null ? ' editBtn--hidde' : '';
     
+   
 
     return (
         <div>
@@ -46,6 +73,31 @@ function Comentarios({
             <div className={`wrapp-input-text-area--hidde${toggleClass}`}>
                 <h3 className='TextComment'>{insertMesaje}</h3>
                 <div className={`wrapp-inpitMesaje${changeclass}`} >
+                    {/*Inicia componente para elejir SKU para comentarios*/}
+                    <div className='wrapp-select-sku'>
+                        <p className='title-card_component'>Elije un Sku</p>
+                        <Select
+                            mode="multiple"
+                            style={{
+                              width: '100%',
+                            }}
+                            placeholder="select one country"
+                            defaultValue={['china']}
+                            onChange={addvaluetoState}
+                            /*onChange={handleChange}*/
+                            options={options}
+                            optionRender={(option) => (
+                            <Space>
+                              <span role="img" aria-label={option.data.label}>
+                                {option.data.emoji}
+                              </span>
+                              {option.data.desc}
+                            </Space>
+                            )}
+                        />
+                    </div>
+                {/*Inicia componente para agregar comentarios */}
+                
                 <textarea 
                 className='text-area-input'
                 type='text-area' 
