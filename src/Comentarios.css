@@ -113,3 +113,82 @@ textarea:focus {
     flex-direction: column;
     gap: 8px;
 }
+
+.wrapp-all-component-select {
+    position: relative;
+    width: 100%;
+    margin-bottom: 16px;
+}
+
+.wrapp-select {
+    border: 1px solid #ccc;
+    padding: 12px 16px;
+    border-radius: 16px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    font-family: 'Neue montreal';
+    font-size: 18px;
+    color: #3C4549;
+}
+
+.options-select {
+    position: relative;
+    top: 12px;
+    left: 0;
+    width: 100%;
+    border-radius: 16px;
+    max-height: 160px;
+    overflow-y: auto;
+    background: #fff;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    z-Index: 1;
+    font-family: 'Neue montreal';
+    font-size: 18px;
+    color: #3C4549;
+    box-shadow: 0px 0px 8px 0px #A1A1A11A;
+}
+
+.options-select::-webkit-scrollbar {
+    width: 8px;
+}
+
+.options-select::-webkit-scrollbar-track {
+    background: #fff;
+    padding: 1px;
+}
+
+.options-select::-webkit-scrollbar-thumb {
+    background-color: #C1C1C1;
+    border-radius: 20px;
+    width: 6px!important;
+}
+
+.options-select li {
+    padding: 15px 17px;
+    cursor: pointer;
+}
+
+.options-select li:hover {
+    background: #F5F5F5!important;
+}
+
+.list-coments {
+    list-style: none;
+    padding: 0px;
+    font-family: 'Neue montreal';
+    font-size: 18px;
+    margin: 0px;
+    color: #3C4549;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-bottom: 16px;
+}
+
+.element-coment {
+    display: flex;
+    gap: 8px;
+}

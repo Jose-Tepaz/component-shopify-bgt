@@ -228,6 +228,84 @@ textarea:focus {
   display: flex;
 }
 
+.wrapp-all-component-select {
+  width: 100%;
+  margin-bottom: 16px;
+  position: relative;
+}
+
+.wrapp-select {
+  cursor: pointer;
+  color: #3c4549;
+  border: 1px solid #ccc;
+  border-radius: 16px;
+  justify-content: space-between;
+  padding: 12px 16px;
+  font-family: Neue montreal;
+  font-size: 18px;
+  display: flex;
+}
+
+.options-select {
+  z-index: 1;
+  color: #3c4549;
+  background: #fff;
+  border-radius: 16px;
+  width: 100%;
+  max-height: 160px;
+  margin: 0;
+  padding: 0;
+  font-family: Neue montreal;
+  font-size: 18px;
+  list-style: none;
+  position: relative;
+  top: 12px;
+  left: 0;
+  overflow-y: auto;
+  box-shadow: 0 0 8px #a1a1a11a;
+}
+
+.options-select::-webkit-scrollbar {
+  width: 8px;
+}
+
+.options-select::-webkit-scrollbar-track {
+  background: #fff;
+  padding: 1px;
+}
+
+.options-select::-webkit-scrollbar-thumb {
+  background-color: #c1c1c1;
+  border-radius: 20px;
+  width: 6px !important;
+}
+
+.options-select li {
+  cursor: pointer;
+  padding: 15px 17px;
+}
+
+.options-select li:hover {
+  background: #f5f5f5 !important;
+}
+
+.list-coments {
+  color: #3c4549;
+  flex-direction: column;
+  gap: 16px;
+  margin: 0 0 16px;
+  padding: 0;
+  font-family: Neue montreal;
+  font-size: 18px;
+  list-style: none;
+  display: flex;
+}
+
+.element-coment {
+  gap: 8px;
+  display: flex;
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, Courier New, monospace;
 }
