@@ -36,7 +36,7 @@
 }
 
 .text-area-input {
-    width: auto;
+    width: 100%;
     border: 1.5px solid #D9D9D9;
     border-radius: 12px;
     padding: 8px 12px;
@@ -51,7 +51,13 @@ textarea:focus {
     border: 1.5px solid #426fcd;
 }
 
-.guardarComents {
+.wrapp-btns-comentas {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+}
+
+.guardarComentsBtn {
     padding: 8px 16px;
     border-radius: 24px;
     border: 1px solid #000;
@@ -60,7 +66,7 @@ textarea:focus {
     font-size: 16px;
     font-style: normal;
     font-weight: 500;
-    margin-top: 10px;
+    cursor: pointer;
     transition: 200ms ease-in;
 }
 
@@ -69,10 +75,22 @@ textarea:focus {
     color: #426fcd;
 }
 
+.btnLinkOnly {
+    padding: 8px 16px;
+    background: transparent;
+    border-style: none;
+    font-family: Neue Montreal;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    margin-top: 10px;
+    color: #1C83E3;
+}
+
 .wrapp-inpitMesaje {
     display: flex;
     flex-direction: column;
-    align-items: stretch;
+    align-items: center;
 }
 
 .wrapp-inpitMesaje--hide {
@@ -121,6 +139,7 @@ textarea:focus {
 }
 
 .wrapp-select {
+    width: 100%;
     border: 1px solid #ccc;
     padding: 12px 16px;
     border-radius: 16px;
@@ -188,7 +207,22 @@ textarea:focus {
     margin-bottom: 16px;
 }
 
+.cardComentAdded {
+    padding: 4px 8px;
+    display: flex;
+    align-items: center;
+    font-family: 'Neue montreal';
+    font-weight: 400;
+    font-size: 18px;
+    border-bottom: solid 1px #D9D9D9;
+}
+
 .element-coment {
     display: flex;
     gap: 8px;
+}
+
+.disabled {
+    pointer-events: none!important;
+    color: #fff;
 }
