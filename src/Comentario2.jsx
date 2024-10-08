@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './Comentarios.css';
 import arrow from '../assets/arrow-cmentarios.svg';
+import Swal from 'sweetalert2';
 
 const Comentario2 = () => {
   const [selectedSKU, setSelectedSKU] = useState('');
@@ -25,6 +26,7 @@ const Comentario2 = () => {
 
   // Opciones de SKU
   const options = [
+    'Todo el pedido',
     'SKU 1513-1531',
     'SKU 1513-1532',
     'SKU 1513-1533',
@@ -86,6 +88,11 @@ const Comentario2 = () => {
   };
 
   // Función para eliminar un comentario
+
+const alertWhantDelet =() => {
+  alertaDelete();
+}
+
   const handleDelete = () => {
 
     const commentToDelete = comments[editIndex];
@@ -102,6 +109,8 @@ const Comentario2 = () => {
 
     setIsOpenSelectTextArea(false) //Oculta / muestra select + textatea
     setNuevoComentario(true);
+
+
     
   };
 
@@ -110,6 +119,48 @@ const Comentario2 = () => {
     setNuevoComentario(!nuevoComentario)
 
   }
+
+  const alertaDelete=()=>{
+    Swal.fire({
+    title: "¿Quieres eliminar el comentario?",
+    html: "Se eliminará y no se enviará en tu cotización.",
+    imageUrl: "https://cdn.shopify.com/s/files/1/0588/7721/4871/files/icon-soft-alert.svg?v=1728425808",
+    imageWidth: 60,
+    imageHeight: 60,
+    showCancelButton: true,
+    cancelButtonText: `Cancelar`,
+    showCloseButton: true,
+    confirmButtonText: `Si, eliminar`,
+    reverseButtons: true,
+    customClass: {
+      popup: 'popAlert',
+      title: 'titlePopup',
+      htmlContainer: 'textpopup',
+      confirmButton: 'confirmBtn',
+      cancelButton: 'closeBtn',
+    }
+}).then((result) => {
+    if (result.isConfirmed) {
+      handleDelete();
+    }  else{
+      
+    }
+    
+  
+});
+}
+
+
+
+
+
+
+
+
+
+
+
+
 
   return (
     
@@ -226,8 +277,8 @@ const Comentario2 = () => {
               </button>
               
                 <button
-                onClick={() => handleDelete()}
-                
+                //onClick={() => handleDelete()}
+                onClick={() => alertWhantDelet()}
                 style={{
                   display: editIndex !== null ? 'block' : 'none',
                   padding: '8px 16px',

@@ -188,11 +188,12 @@ const handleOptionClick = (option) => {
             <div 
             className='wrapp-tile-narrow'
             onClick={changeClass}>
-            <h3 className='title-card_component'>Agregar comentarios <span>(Opcional)</span></h3>
-            <img 
-            className={`imgArrow${toggleClassArrow}`}
-            src={arrow}/>
+              <h3 className='title-card_component'>Agregar comentarios <span>(Opcional)</span></h3>
+              <img 
+              className={`imgArrow${toggleClassArrow}`}
+              src={arrow}/>
             </div>
+            
             <div className={`wrapp-input-text-area--hidde${toggleClass}`}>
             <ul
             className='list-coments'
@@ -307,7 +308,7 @@ const handleOptionClick = (option) => {
                     } }
                     />
                 
-                    <button className='guardarComents'
+                    <button className='guardarComentsBtn'
                     onClick={ 
                         () => {
                           
