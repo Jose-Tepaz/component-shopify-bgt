@@ -21,7 +21,6 @@ const listDespostos = async(state) => {
     //const result = nameID.split(",");
 
 
-
     const separando = nameID.map((a) => {
 
         const nuevo = a.split(",");

@@ -117,6 +117,7 @@ input:checked + span {
   justify-content: space-between;
   align-items: center;
   width: 100%;
+  padding: 10px 0;
   display: flex;
 }
 
@@ -329,13 +330,21 @@ textarea:focus {
 
 .cardComentAdded {
   color: #3c4549;
+  stroke: #c8c8c8;
   border-bottom: 1px solid #d9d9d9;
+  border-radius: 4px;
   align-items: center;
   padding: 4px 8px;
   font-family: Neue montreal;
   font-size: 18px;
   font-weight: 400;
+  transition: all .5s;
   display: flex;
+}
+
+.cardComentAdded:hover {
+  stroke: #426fcd;
+  background: #f5f6fd;
 }
 
 .element-coment {
@@ -388,6 +397,7 @@ code {
   flex-direction: column;
   gap: 16px;
   width: 100%;
+  max-width: 450px;
   padding: 0;
   display: flex;
 }
@@ -398,6 +408,15 @@ code {
   flex-direction: column;
   gap: 16px;
   padding: 24px 32px;
+  display: flex;
+}
+
+.cardComponent-coments {
+  border: 1px solid #e1e3e4;
+  border-radius: 25px;
+  flex-direction: column;
+  gap: 16px;
+  padding: 20px 32px;
   display: flex;
 }
 

@@ -19,10 +19,20 @@ code {
     display: flex;
     flex-direction: column;
     gap: 16px;
+    max-width: 450px;
 }
 
 .cardComponent {
     padding: 24px 32px;
+    border: 1px solid #e1e3e4;
+    border-radius: 25px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.cardComponent-coments {
+    padding: 20px 32px;
     border: 1px solid #e1e3e4;
     border-radius: 25px;
     display: flex;

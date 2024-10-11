@@ -4,6 +4,7 @@
     justify-content: space-between;
     cursor: pointer;
     align-items: center;
+    padding: 10px 0px;
 }
 
 .imgArrow {
@@ -223,6 +224,14 @@ textarea:focus {
     font-size: 18px;
     border-bottom: solid 1px #D9D9D9;
     color: #3C4549;
+    border-radius: 4px;
+    transition: 0.5s;
+    stroke: #C8C8C8;
+}
+
+.cardComentAdded:hover {
+    background: #F5F6FD;
+    stroke: #426FCD;
 }
 
 .element-coment {

@@ -26,9 +26,32 @@ const App =() => {
 
     //Mesaje value
     //const [mesajeValue, setMesajeValue] = React.useState("No hay comentarios");
+
     const [mesajeValue, setMesajeValue] = React.useState([]);
+    //const [comentarioFinal, setComentarioFinal] = useState("No hay comentarios");
     
-    //console.log(mesajeValue);
+    const listadeComenatios = mesajeValue.map((lista) => (
+        `<li> ${lista.sku}: ${lista.comment} </li>` 
+    ))
+        
+    //seteando comentario
+    const convirtiendoaStringComentario = listadeComenatios.toString();
+    const stgNoComa = convirtiendoaStringComentario.split(",").join('');
+    const completeComent = mesajeValue <= 0 ? "No hay comentaios" :`<ul style="padding: 2px;margin:0px;"> ${stgNoComa} </ul>`;
+    
+    useEffect(() => { 
+        
+       
+        console.log(completeComent)
+       
+        
+
+      }, [mesajeValue])
+
+      
+
+  
+
 
     const [searchValue, setSearchValue] = React.useState(null);
     //console.log('Este es el valor ' + searchValue);
@@ -79,7 +102,7 @@ async function enviandoDatos() {
                 "fields": {
                     "Idcliente": `${idDataApi}`,
                     "DireccionDeposito": `${adressSelect}`,
-                    "Comentario": `${mesajeValue}`,
+                    "Comentario": `${completeComent}`,
                     "productos": `${finalsend}`,
                     "Email": `${emailClientDataApi}`,
                     "RFC": `${rfcDataApi}`,
@@ -91,8 +114,6 @@ async function enviandoDatos() {
                     "CantidadProduct": `${cantidadDeProductoAPI}`,
                     "SolicitudPor": "Asesor",
                     "Deposito": `${idDataApi}`,
-
-
                 }
             }],
             "typecast": true
@@ -239,7 +260,7 @@ const alertaError=()=>{
             <div className='Wrapp-component'>
             
 
-                <div className='cardComponent'>
+                <div className='cardComponent-coments'>
                 <Comentario2 
                 mesajeValue={mesajeValue}
                 setMesajeValue={setMesajeValue} 
