@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './Comentarios.css';
 import arrow from '../assets/arrow-cmentarios.svg';
 import Swal from 'sweetalert2';
@@ -24,15 +24,26 @@ const Comentario2 = ({mesajeValue, setMesajeValue,}) => {
   //Descpliega el select
   const [nuevoComentario, setNuevoComentario] = useState(false);
 
-  // Opciones de SKU
-  const options = [
+  const [finalOptions, setFinalOptions] = useState([
     'Todo el pedido',
-    'SKU 1513-1531',
-    'SKU 1513-1532',
-    'SKU 1513-1533',
-    'SKU 1513-1534',
-    'SKU 1513-1535',
-  ];
+    
+  ]);
+
+
+  //Opciones de SKU, este array debe de construirse en shopify, por lo tanto antes de mandar a shopify, ocultamos esto
+  //const skuOptions = [
+  //  'SKU 1513-1531',
+  //  'SKU 1513-1532',
+  //  'SKU 1513-1533',
+  //  'SKU 1513-1534',
+  //  'SKU 1513-1535',
+  //];
+ 
+  useEffect(() => {
+    
+      setFinalOptions((prevOptions) => [...prevOptions, ...skuOptions]);
+  
+  },[]);
 
   // Función para manejar el select de SKU
   const handleSKUSelect = (e) => {
@@ -249,7 +260,7 @@ const alertWhantDelet =() => {
               </div>
               {isOpen && (
                 <ul className='options-select'>
-                  {options.map((option, index) => (
+                  {finalOptions.map((option, index) => (
                     <li
                       key={index}
                       onClick={() => 
@@ -326,32 +337,7 @@ const alertWhantDelet =() => {
           )}
         </div>
       )}
-      
-
-      {/* Select para elegir el SKU 
-      <select
-        value={selectedSKU}
-        onChange={handleSKUSelect}
-        style={{ width: '100%', padding: '10px', marginBottom: '10px' }}
-      >
-        <option value="">Selecciona un SKU</option>
-        {options.map((option, index) => (
-          <option key={index} value={option} disabled={disabledSKUs.includes(option)}>
-            {option}
-          </option>
-        ))}
-      </select>
-
-*/}
-
-      
-      
-
-
-
-
-      
-      
+        
     </div>
   );
 };

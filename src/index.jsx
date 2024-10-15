@@ -80,12 +80,12 @@ const App =() => {
 
    
     //SE OCULTA AL ENVIAR A PRODUCCION DATOS DE PRUEBA
-    const finalsend = "Lista de productos";
-    const asesorIdshopify = "987654321";
-    const emailAsesor = "jose@acueducto.studio";
-    const nombreDeProductoAPI = "Lista de productos";
-    const skuDeProductoAPI = "sku";
-    const cantidadDeProductoAPI = "5";
+    //const finalsend = "Lista de productos";
+    //const asesorIdshopify = "987654321";
+    //const emailAsesor = "jose@acueducto.studio";
+    //const nombreDeProductoAPI = "Lista de productos";
+    //const skuDeProductoAPI = "sku";
+    //const cantidadDeProductoAPI = "5";
 
 // !!--- Send POST data to Airtable ---!!
 async function enviandoDatos() {
@@ -187,7 +187,7 @@ async function enviandoDatos() {
        setLoadings((prevLoadings) => {
          const newLoadings = [...prevLoadings];
          newLoadings[index] = false;
-         //orderCreate(); //Crear la orden en shopify | se descomenta al enviar a shopify
+         orderCreate(); //Crear la orden en shopify | se descomenta al enviar a shopify
          enviandoDatos();
          
          //location.reload();

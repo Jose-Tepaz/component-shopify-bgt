@@ -67,7 +67,7 @@ textarea:focus {
     font-family: Neue Montreal;
     font-size: 16px;
     font-style: normal;
-    font-weight: 500;
+    font-weight: bolder;
     cursor: pointer;
     transition: 200ms ease-in;
 }
@@ -84,7 +84,7 @@ textarea:focus {
     font-family: Neue Montreal;
     font-size: 16px;
     font-style: normal;
-    font-weight: 500;
+    font-weight: bolder;
     margin-top: 10px;
     color: #1C83E3;
 }
@@ -105,7 +105,7 @@ textarea:focus {
     font-family: "Neue Montreal";
     font-size: 16px;
     font-style: normal;
-    font-weight: 500;
+    font-weight: bolder;
     line-height: normal;
     cursor: pointer;
     margin-top: 24px;
@@ -157,6 +157,7 @@ textarea:focus {
     font-family: 'Neue montreal';
     font-size: 18px;
     color: #3C4549;
+    line-height: 1.2em;
 }
 
 .options-select {
@@ -176,6 +177,7 @@ textarea:focus {
     font-size: 18px;
     color: #3C4549;
     box-shadow: 0px 0px 8px 0px #A1A1A11A;
+    line-height: 1.2em;
 }
 
 .options-select::-webkit-scrollbar {
@@ -216,10 +218,11 @@ textarea:focus {
 }
 
 .cardComentAdded {
-    padding: 4px 8px;
+    padding: 8px 8px;
     display: flex;
     align-items: center;
     font-family: 'Neue montreal';
+    line-height: 1.2em;
     font-weight: 400;
     font-size: 18px;
     border-bottom: solid 1px #D9D9D9;

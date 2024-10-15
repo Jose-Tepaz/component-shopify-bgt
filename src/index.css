@@ -13,6 +13,18 @@ code {
     align-items: center;
 }
 
+@font-face {
+    font-family: 'Neue montreal';
+    src: url(/assets/NeueMontreal-Medium.woff2);
+    font-weight: bolder;
+}
+
+@font-face {
+    font-family: 'Neue montreal';
+    src: url(/assets/NeueMontreal-Regular.woff2);
+    font-weight: 400;
+}
+
 .Wrapp-component {
     padding: 0px;
     width: 100%;
@@ -43,7 +55,7 @@ code {
 .title-card_component {
     font-family: 'Neue montreal';
     color: #3C4549;
-    font-weight: 500;
+    font-weight: bolder;
     font-size: 18px;
     margin: 0px;
 }
@@ -90,7 +102,7 @@ code {
     border-style: none;
     color: #fff;
     font-family: 'Neue montreal';
-    font-weight: 500;
+    font-weight: bolder;
     font-size: 16px;
     cursor: pointer;
     transition: 200ms ease-in;
@@ -122,7 +134,7 @@ code {
 .titlePopup {
     font-size: 30px!important;
     font-family: 'Neue montreal';
-    font-weight: 500;
+    font-weight: bolder;
     color: #3C4449;
     text-align: left;
 }
@@ -130,7 +142,7 @@ code {
 .titlePopup {
     font-size: 30px!important;
     font-family: 'Neue montreal';
-    font-weight: 500;
+    font-weight: bolder;
     color: #3C4449;
     text-align: center;
     padding: 0;
